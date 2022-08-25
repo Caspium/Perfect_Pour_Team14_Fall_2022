@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "567462284896",
+    "project_id": "perfectpourovercoffee-3c0ce",
+    "storage_bucket": "perfectpourovercoffee-3c0ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567462284896:android:710b0b2a7266fd0dbd3d05",
+        "android_client_info": {
+          "package_name": "com.zeeshanvirani.projectcelia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567462284896-mmbq5s38uqg26oe3ppntbk1518dntj9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeeA2HGPX4pAhnWaYjRuUTsXKKqcRUyyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567462284896-mmbq5s38uqg26oe3ppntbk1518dntj9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

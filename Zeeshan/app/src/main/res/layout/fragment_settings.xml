@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="24dp"
+    android:paddingBottom="56dp"
+    android:background="@color/primary"
+    tools:context=".SettingsFragment" >
+
+    <TextView
+        android:id="@+id/settings_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:textSize="24sp"
+        android:textColor="@color/onPrimary"
+        android:layout_marginBottom="12dp"
+        android:textStyle="bold"
+        android:text="@string/settings_heading" />
+
+    <FrameLayout
+        android:id="@+id/settings_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/settings_heading"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        />
+
+<!--&lt;!&ndash;Account Heading&ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/account_heading"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/settings_heading"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:textStyle="bold"-->
+<!--        android:text="@string/settings_account" />-->
+<!--&lt;!&ndash;    Edit Profile&ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/settings_editprofile_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/account_heading"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:paddingLeft="0dp"-->
+<!--        android:paddingRight="0dp"-->
+<!--        android:backgroundTint="@color/primary"-->
+<!--        android:drawableEnd="@drawable/ic_arrow_right"-->
+<!--        android:drawableTint="@color/onPrimary"-->
+<!--        android:drawablePadding="20dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textAlignment="textStart"-->
+<!--        android:letterSpacing="0"-->
+<!--        android:text="@string/settings_editprofile"/>-->
+
+<!--    <View-->
+<!--        android:id="@+id/settings_divide_1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@id/settings_editprofile_button"-->
+<!--        android:background="@color/onPrimary" />-->
+
+<!--&lt;!&ndash;    Change Password&ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/settings_changepassword_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/settings_divide_1"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:paddingLeft="0dp"-->
+<!--        android:paddingRight="0dp"-->
+<!--        android:backgroundTint="@color/primary"-->
+<!--        android:drawableEnd="@drawable/ic_arrow_right"-->
+<!--        android:drawableTint="@color/onPrimary"-->
+<!--        android:drawablePadding="20dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textAlignment="textStart"-->
+<!--        android:letterSpacing="0"-->
+<!--        android:text="@string/settings_changepassword"/>-->
+
+<!--    <View-->
+<!--        android:id="@+id/settings_divide_2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@id/settings_changepassword_button"-->
+<!--        android:background="@color/onPrimary" />-->
+
+<!--&lt;!&ndash;Notifications Heading&ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/notifications_heading"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/settings_divide_2"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:textStyle="bold"-->
+<!--        android:text="@string/settings_notifications" />-->
+<!--&lt;!&ndash;    Brewing Status&ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/settings_brewingstatus_text"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/notifications_heading"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:text="@string/settings_brewingstatus" />-->
+<!--    <com.google.android.material.switchmaterial.SwitchMaterial-->
+<!--        android:id="@+id/settings_brewingstatus_toggle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/notifications_heading"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:theme="@style/Theme.ProjectCelia.Switch"/>-->
+<!--    <View-->
+<!--        android:id="@+id/settings_divide_3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@id/settings_brewingstatus_toggle"-->
+<!--        android:background="@color/onPrimary" />-->
+
+<!--&lt;!&ndash;    Maintenance Reminders&ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/settings_maintenance_text"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/settings_divide_3"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:text="@string/settings_maintenancereminder" />-->
+<!--    <com.google.android.material.switchmaterial.SwitchMaterial-->
+<!--        android:id="@+id/settings_maintenance_toggle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/settings_brewingstatus_toggle"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:theme="@style/Theme.ProjectCelia.Switch"/>-->
+<!--    <View-->
+<!--        android:id="@+id/settings_divide_4"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@id/settings_maintenance_toggle"-->
+<!--        android:background="@color/onPrimary" />-->
+
+<!--&lt;!&ndash;Device Heading&ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/device_heading"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/settings_divide_4"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:textStyle="bold"-->
+<!--        android:text="@string/settings_device" />-->
+<!--&lt;!&ndash;    Device Information&ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/settings_deviceinfo_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/device_heading"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:paddingLeft="0dp"-->
+<!--        android:paddingRight="0dp"-->
+<!--        android:backgroundTint="@color/primary"-->
+<!--        android:drawableEnd="@drawable/ic_arrow_right"-->
+<!--        android:drawableTint="@color/onPrimary"-->
+<!--        android:drawablePadding="20dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textAlignment="textStart"-->
+<!--        android:letterSpacing="0"-->
+<!--        android:text="@string/settings_deviceinformation"/>-->
+
+<!--    <View-->
+<!--        android:id="@+id/settings_divide_5"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@id/settings_deviceinfo_button"-->
+<!--        android:background="@color/onPrimary" />-->
+
+<!--&lt;!&ndash;Help and Support Heading&ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/help_heading"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/settings_divide_5"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:textStyle="bold"-->
+<!--        android:text="@string/settings_helpandsupport" />-->
+<!--&lt;!&ndash;    FAQ&ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/settings_faq_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/help_heading"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:paddingLeft="0dp"-->
+<!--        android:paddingRight="0dp"-->
+<!--        android:backgroundTint="@color/primary"-->
+<!--        android:drawableEnd="@drawable/ic_arrow_right"-->
+<!--        android:drawableTint="@color/onPrimary"-->
+<!--        android:drawablePadding="20dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textAlignment="textStart"-->
+<!--        android:letterSpacing="0"-->
+<!--        android:text="@string/settings_frequentlyaskedquestions"/>-->
+
+<!--    <View-->
+<!--        android:id="@+id/settings_divide_7"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@id/settings_faq_button"-->
+<!--        android:background="@color/onPrimary" />-->
+<!--&lt;!&ndash;    Contact Support&ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/settings_contact_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/settings_divide_7"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:paddingLeft="0dp"-->
+<!--        android:paddingRight="0dp"-->
+<!--        android:backgroundTint="@color/primary"-->
+<!--        android:drawableEnd="@drawable/ic_arrow_right"-->
+<!--        android:drawableTint="@color/onPrimary"-->
+<!--        android:drawablePadding="20dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/onPrimary"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textAlignment="textStart"-->
+<!--        android:letterSpacing="0"-->
+<!--        android:text="@string/settings_contactsupport"/>-->
+
+<!--    <View-->
+<!--        android:id="@+id/settings_divide_8"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@id/settings_contact_button"-->
+<!--        android:background="@color/onPrimary" />-->
+
+</RelativeLayout>
+

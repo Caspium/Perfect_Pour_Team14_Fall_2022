@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Project Celia</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="brew_goodmorning">Good Morning,</string>
+    <string name="brew_roasttype">Roast Type</string>
+    <string name="brew_roasttype_l">L</string>
+    <string name="brew_roasttype_m">M</string>
+    <string name="brew_roasttype_md">MD</string>
+    <string name="brew_roasttype_d">D</string>
+    <string name="brew_cupsize">Cup Size</string>
+    <string name="brew_cupsize_small">8 oz</string>
+    <string name="brew_cupsize_medium">16 oz</string>
+    <string name="brew_cupsize_large">20 oz</string>
+    <string name="brew_startbrewing">Start Brewing</string>
+    <string name="history_clicktorate">Click to Rate!</string>
+    <string name="history_brewinghistory">Brewing History</string>
+    <string name="settings_heading">Settings</string>
+    <string name="settings_account">Account</string>
+    <string name="settings_editprofile">Edit Profile</string>
+    <string name="settings_changepassword">Change Password</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_brewingstatus">Brewing Status</string>
+    <string name="settings_maintenancereminder">Maintenance Reminders</string>
+    <string name="settings_device">Device</string>
+    <string name="settings_deviceinformation">Device Information</string>
+    <string name="settings_helpandsupport">Help and Support</string>
+    <string name="settings_frequentlyaskedquestions">Frequently Asked Questions</string>
+    <string name="settings_contactsupport">Contact Support</string>
+
+    <!-- BrewingProcess -->
+    <string name="brewingprocess_cannotfinddevice">Cannot find Device</string>
+
+    <!-- DialogChangePassword -->
+    <string name="dialogchangepassword_newpassword">New Password</string>
+    <string name="dialogchangepassword_confirmnewpassword">Confirm New Password</string>
+
+
+</resources>
