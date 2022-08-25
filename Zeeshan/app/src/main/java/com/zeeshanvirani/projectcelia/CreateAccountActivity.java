@@ -135,7 +135,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         return name_textbox.getText().toString().isEmpty()
                 || email_textbox.getText().toString().isEmpty()
                 || password_textbox.getText().toString().isEmpty()
-                || confirmpassword_textbox.getText().toString().isEmpty()
+                || confirmpassword_textbox.getText().toString().isEmpty();
     }
 
     // Determines if a provided string (email) is a valid email
