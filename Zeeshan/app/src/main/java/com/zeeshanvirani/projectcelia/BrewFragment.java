@@ -125,6 +125,8 @@ public class BrewFragment extends Fragment {
                     brew.put(DataHandler.DB_BEAN_TYPE, getSelectedBeanType());
                     brew.put(DataHandler.DB_CUP_SIZE, getSelectedSize());
                     brew.put(DataHandler.DB_RATING, "null");
+                    brew.put(DataHandler.DB_STRENGTH, "null");
+
 
                     String next_temp = (String) documentSnapshot.get("next_target_temperature");
                     String next_sat = (String) documentSnapshot.get("next_target_saturation");

@@ -35,6 +35,7 @@ public class DataHandler {
     public static String DB_RATING = "rating";
     public static String DB_TEMPERATURE = "temperature";
     public static String DB_TARGET_SATURATION = "target_saturation";
+    public static String DB_STRENGTH = "strength";
 
     static String CHANNEL_ID = "com.zeeshanvirani.projectcelia.notifications";
 
