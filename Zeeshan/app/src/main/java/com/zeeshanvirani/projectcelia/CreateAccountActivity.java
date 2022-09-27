@@ -43,7 +43,6 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         Button createaccount_btn = findViewById(R.id.createaccount_button);
         createaccount_btn.setOnClickListener(view -> createAccountButtonClicked());
-
     }
 
     private void createAccountButtonClicked() {
