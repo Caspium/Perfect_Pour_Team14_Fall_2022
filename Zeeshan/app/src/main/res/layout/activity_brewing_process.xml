@@ -48,4 +48,21 @@
         app:strokeWidth="2dp"
         android:visibility="gone"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/brewing_continuebrewing"
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/brewing_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/secondary"
+        android:text="Continue Brewing"
+        android:letterSpacing="0"
+        android:textColor="@color/onSecondary"
+        android:textSize="18sp"
+        app:cornerRadius="32dp"
+        app:strokeColor="@color/secondary"
+        app:strokeWidth="2dp"
+        android:visibility="gone"/>
+
 </RelativeLayout>
