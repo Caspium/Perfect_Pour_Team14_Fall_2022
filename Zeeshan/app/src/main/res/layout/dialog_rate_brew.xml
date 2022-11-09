@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rate_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
+
+    <TextView
+        android:id="@+id/rate_rating_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/onPrimary"
+        android:text="How would you rate this coffee?" />
+
+    <NumberPicker
+        android:id="@+id/rate_rating_np"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_below="@id/rate_rating_header"
+        />
+
+    <TextView
+        android:id="@+id/rate_strength_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rate_rating_np"
+        android:textSize="12sp"
+        android:textColor="@color/onPrimary"
+        android:text="How strong was this coffee?" />
+
+    <RelativeLayout
+        android:id="@+id/strength_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rate_strength_header"
+        android:layout_centerHorizontal="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_strength_weak"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="@drawable/brew_buttons_background"
+            android:padding="0dp"
+            android:elevation="30dp"
+            android:text="Too\nWeak"
+            android:letterSpacing="0"
+            android:textSize="10sp"
+            android:textColor="@drawable/brew_buttons_text"
+            app:cornerRadius="16dp"
+            app:strokeColor="@color/secondary"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_strength_perfect"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@id/button_strength_weak"
+            android:backgroundTint="@drawable/brew_buttons_background"
+            android:padding="0dp"
+            android:elevation="30dp"
+            android:text="Perfect"
+            android:letterSpacing="0"
+            android:textSize="10sp"
+            android:textColor="@drawable/brew_buttons_text"
+            app:cornerRadius="16dp"
+            app:strokeColor="@color/secondary"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_strength_strong"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@id/button_strength_perfect"
+            android:backgroundTint="@drawable/brew_buttons_background"
+            android:padding="0dp"
+            android:elevation="30dp"
+            android:text="Too\nStrong"
+            android:letterSpacing="0"
+            android:textSize="10sp"
+            android:textColor="@drawable/brew_buttons_text"
+            app:cornerRadius="16dp"
+            app:strokeColor="@color/secondary"
+            app:strokeWidth="1dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

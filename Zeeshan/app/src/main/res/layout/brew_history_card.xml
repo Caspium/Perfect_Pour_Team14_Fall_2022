@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/primary"
+    app:contentPadding="10dp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="10dp"
+    android:layout_marginTop="-7dp"
+    android:layout_marginBottom="-7dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/history_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MMM DD, YYYY"
+            android:textSize="16sp"
+            android:textColor="@color/onPrimary" />
+
+        <TextView
+            android:id="@+id/history_roasttype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/history_date"
+            android:text="X Roast"
+            android:textSize="16sp"
+            android:textColor="@color/onPrimary" />
+
+        <View
+            android:id="@+id/history_divider"
+            android:layout_width="2dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/onPrimary" />
+
+        <TextView
+            android:id="@+id/history_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/history_divider"
+            android:layout_centerVertical="true"
+            android:text="X/10"
+            android:textSize="24sp"
+            android:textColor="@color/secondary" />
+
+        <Button
+            android:id="@+id/history_rating_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/history_divider"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:text="@string/history_clicktorate"
+            android:padding="0dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/secondary"
+            android:textStyle="normal"
+            android:visibility="gone" />
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:text="Rebrew"-->
+<!--            android:backgroundTint="@color/secondary"-->
+<!--            android:elevation="30dp"-->
+<!--            android:padding="0dp"-->
+<!--            android:textColor="@color/onSecondary"-->
+<!--            android:letterSpacing="0"-->
+<!--            android:textSize="18sp"-->
+<!--            android:fontFamily="Roboto"-->
+<!--            app:cornerRadius="4dp"-->
+<!--            app:strokeColor="@color/secondary"-->
+<!--            app:strokeWidth="2dp"/>-->
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

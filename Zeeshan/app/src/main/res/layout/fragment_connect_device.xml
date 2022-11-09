@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="24dp"
+    android:paddingTop="24dp"
+    android:paddingRight="24dp"
+    tools:context=".ConnectDevice">
+
+    <EditText
+        android:id="@+id/connectdevice_textbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Device Mac Address"
+        />
+
+    <TextView
+        android:id="@+id/connectdevice_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/connectdevice_textbox"
+        android:text="Enter Mac Address then click Connect"
+        android:textColor="@color/onPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/connectdevice_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/connectdevice_status"
+        android:backgroundTint="@color/secondary"
+        android:textColor="@color/onSecondary"
+        android:text="Connect to Device"
+        />
+
+
+</RelativeLayout>

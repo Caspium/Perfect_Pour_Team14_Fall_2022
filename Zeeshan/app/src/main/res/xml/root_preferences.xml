@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:iconSpaceReserved="false" >
+
+    <!--        Dark/Light Mode-->
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="notifications_darklight_mode"
+        android:title="Dark Mode"
+        app:iconSpaceReserved="false"/>
+
+    <PreferenceCategory android:title="Account" app:iconSpaceReserved="false">
+
+        <!--        Change Name-->
+        <EditTextPreference
+            android:dialogTitle="Enter your name"
+            android:key="account_name"
+            android:title="Your Name"
+            app:iconSpaceReserved="false" />
+        <!--        Change Email-->
+        <EditTextPreference
+            android:dialogTitle="Enter new email"
+            android:key="account_email"
+            android:title="Change Email"
+            app:iconSpaceReserved="false"/>
+        <!--        Change Password-->
+        <Preference
+            android:key="account_password"
+            android:title="Change Password"
+            app:iconSpaceReserved="false" />
+
+<!--        Logout-->
+        <Preference
+            android:title="Sign out"
+            android:key="signout"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Notifications" app:iconSpaceReserved="false">
+
+        <!--        Brewing Status-->
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="notifications_brewing_status"
+            android:title="Brewing Status"
+            app:iconSpaceReserved="false"/>
+        <!--        Maintenance Reminders-->
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="notifications_maintenance_reminders"
+            android:title="Maintenance Reminders"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Device" app:iconSpaceReserved="false">
+
+<!--        <Preference-->
+<!--            android:title="Connect Device"-->
+<!--            android:key="device_connect"-->
+<!--            app:iconSpaceReserved="false"-->
+<!--            />-->
+
+        <Preference
+            android:title="Device Information"
+            android:key="device_information"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Help and Support" app:iconSpaceReserved="false">
+
+        <Preference
+            android:title="Visit our website"
+            android:key="visitwebsite"
+            android:summary="See Frequently Asked Questions and Customer Support"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
