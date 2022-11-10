@@ -89,7 +89,24 @@
 
 #     plt.figure()
 
-input layer (1) 
+import tensorflow as tf #library for ML
+from tensorflow import keras #library to import keras
+from keras.preprocessing.image import ImageDataGenerator #keras library for importting images
+from keras.models import Sequential #CNN model
+from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D #CNN different layers needed
+import numpy as np #for plotting 
+import matplotlib.pyplot as plt #for plotting
+from sklearn.metrics import classification_report, confusion_matrix #used to view results of CNN model
+
+converter = tf.lite.TFLiteConverter.from_saved_model(saved_model_dir) # path to the SavedModel directory
+tflite_model = converter.convert()
+
+# Save the model.
+with open('model.tflite', 'wb') as f:
+  f.write(tflite_model)
+
+model = Sequential()
+#input layer (1) 
 #filters -> number of filters model will learn = 16 
 # kernel size = 2-tuple specifying the width and height of the 2D convolution window (3x3)
 # padding = same to preserve the spatial dimensions of the volume for output volume size to match the input volume size
