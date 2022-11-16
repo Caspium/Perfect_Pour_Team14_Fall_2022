@@ -83,24 +83,17 @@ def main(p1, p2):
     y_pred = knn_grind.predict(x_validate)  # model predict independent validation dataset values
 
 
-    # now reading from database to implement machine learning
-    docs = db.collection('brews').stream()  # reads from all documents in a collection of the database
-    data = pd.DataFrame()  # this creates the pandas dataframe containing all of the user feedback from the database
-    doc_id = []
-    for doc in docs:  # iterates through the document stream
-        doc_id.append(doc.id)
-        data = data.append(doc.to_dict(), ignore_index=True)  # appends it to my pandas dataframe
+    brewdocid = p2.resource.split('/')[-1]
+    recent_data = db.collection("brews").document(brewdocid).stream
+    data = pd.DataFrame() #this creates the pandas dataframe containing all of the user feedback from the database
+    for doc in recent_data: #iterates through the document stream
+        data = data.append(doc.to_dict(),ignore_index=True) # appends it to my pandas dataframe
 
     # this replaces all of the string values of coffee bean type and converting it to float values
     data['bean_type'].loc[data['bean_type'] == 'Robusta'] = 1.0  # converting robusta to 1
     data['bean_type'].loc[data['bean_type'] == 'Arabica'] = 2.0  # converting arabica to 2
     data['bean_type'].loc[data['bean_type'] == 'Liberica'] = 3.0  # converting liberica to 3
     data['bean_type'].loc[data['bean_type'] == 'Excelsa'] = 4.0  # converting excelsa to 4
-
-    # this replaces all of the string values of grind size and converting it to float values
-    # data['grind_size'].loc[data['grind_size'] == 'medium'] = 0.0 #converting medium to 0
-    # data['grind_size'].loc[data['grind_size'] == 'larger'] = 1.0 #converting larger to 1
-    # data['grind_size'].loc[data['grind_size'] == 'smaller'] = 2.0 #converting smaller to 2
 
     # this replaces all of the string values of roast type and converting it to float values
     data['roast_type'].loc[data['roast_type'] == 'Light'] = 0.0  # converting mild to 0
@@ -110,11 +103,6 @@ def main(p1, p2):
 
     data = data._convert(numeric=True)  # converts all strings/objects into floats
 
-    brewdocid = p2.resource.split('/')[-1]
-    recent_data = db.collection("brews").document(brewdocid).stream
-    recent_entry = pd.DataFrame() #this creates the pandas dataframe containing all of the user feedback from the database
-    for doc in recent_data: #iterates through the document stream
-        data = data.append(doc.to_dict(),ignore_index=True) # appends it to my pandas dataframe
 
     if recent_entry['rating'].values == 10.0: #retains values if ratings are 10
         #runs knn prediction on rating, saturation, temp, strength, and grind to train model
