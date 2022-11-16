@@ -22,7 +22,6 @@ def main(p1, p2):
     docs = db.collection('trainingandvalidating').stream()  # reads from all documents in a collection of the database
     data = pd.DataFrame()  # this creates the pandas dataframe containing all of the user feedback from the database
     for doc in docs:  # iterates through the document stream
-        print(f'{doc.id} => {doc.to_dict()}')  # shows programmer what is being saved
         data = data.append(doc.to_dict(), ignore_index=True)  # appends it to my pandas dataframe
     # this replaces all of the string values of coffee bean type and converting it to float values
     data['bean_type'].loc[data['bean_type'] == 'robusta'] = 1.0  # converting robusta to 1
@@ -60,15 +59,6 @@ def main(p1, p2):
     knn_sat.fit(x_train, y_train) #fitting training independent and dependent data 
     y_pred = knn_sat.predict(x_validate) #model predict independent validation dataset values
 
-    #outputs accuracy score of dependent validate values and predicted independent values
-    #accuracy score: calculate the accuracy of faction of correct prediction
-    #(TP+TN)/ (TP+FN+TN+FP)
-    print('accuracy =', accuracy_score(y_validate, y_pred))
-
-    #outputs confusion matrix of dependent validate values and predicted independent values
-    print('confusion matrix')
-    print(confusion_matrix(y_validate, y_pred))
-
     ############TEMP KNN#######################
     #first splitting 60% out for training then 40% for validation & testing
     x_train, x_test, y_train, y_test = train_test_split(data[['roast_type','bean_type']].values, data[['temperature']].values, test_size=0.2, random_state=42) 
@@ -99,7 +89,6 @@ def main(p1, p2):
     doc_id = []
     for doc in docs:  # iterates through the document stream
         doc_id.append(doc.id)
-        print(f'{doc.id} => {doc.to_dict()}')  # shows programmer what is being saved
         data = data.append(doc.to_dict(), ignore_index=True)  # appends it to my pandas dataframe
 
     # this replaces all of the string values of coffee bean type and converting it to float values
@@ -121,17 +110,28 @@ def main(p1, p2):
 
     data = data._convert(numeric=True)  # converts all strings/objects into floats
 
-    recent_entry = data.tail(1) #pulls the most recent
+    path_parts = p2.resource.split('/documents/')[1].split('/')
+    brewdocid = '/'.join(path_parts[1:])
+    recent_data = db.collection("brews").document(brewdocid).stream
+    recent_entry = pd.DataFrame() #this creates the pandas dataframe containing all of the user feedback from the database
+    for doc in recent_data: #iterates through the document stream
+        data = data.append(doc.to_dict(),ignore_index=True) # appends it to my pandas dataframe
+
     if recent_entry['rating'].values == 10.0: #retains values if ratings are 10
         #runs knn prediction on rating, saturation, temp, strength, and grind to train model
+        rating_prediction = knn_strength.predict(recent_entry[['roast_type','bean_type']].values)
         saturation_prediction = knn_sat.predict(recent_entry[['roast_type','bean_type']].values)
         temp_prediction = knn_temp.predict(recent_entry[['roast_type','bean_type']].values)
+        strength_prediction = knn_strength.predict(recent_entry[['roast_type','bean_type']].values)
         grind_prediction = knn_grind.predict(recent_entry[['roast_type','bean_type']].values)
         
     elif recent_entry['rating'].values < 10.0: #implements algorithm if ratings are less than 10
         #runs knn prediction on rating, saturation, temp, strength, and grind to 
+
+        rating_prediction = knn_strength.predict(recent_entry[['roast_type','bean_type']].values)
         saturation_prediction = knn_sat.predict(recent_entry[['roast_type','bean_type']].values)
         temp_prediction = knn_temp.predict(recent_entry[['roast_type','bean_type']].values)
+        strength_prediction = knn_strength.predict(recent_entry[['roast_type','bean_type']].values)
         grind_prediction = knn_grind.predict(recent_entry[['roast_type','bean_type']].values)
 
         for i in grind_prediction: #pulling data from grind prediction array to add to database
@@ -143,7 +143,7 @@ def main(p1, p2):
         for i in saturation_prediction: #pulling data from saturation prediction array to add to database
             sat_predict = i
 
-        users_ref = db.collection("brews").document(doc_id[-1]).update({ #updates document to include new grind suggestion
+        users_ref = db.collection("brews").document(brewdocid).update({ #updates document to include new grind suggestion
             'grind_size': str(grind_predict)
         })
 
@@ -159,4 +159,3 @@ def main(p1, p2):
             'next_target_saturation': str(sat_predict)
         })
 
-        
