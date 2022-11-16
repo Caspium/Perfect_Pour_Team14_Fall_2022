@@ -110,8 +110,7 @@ def main(p1, p2):
 
     data = data._convert(numeric=True)  # converts all strings/objects into floats
 
-    path_parts = p2.resource.split('/documents/')[1].split('/')
-    brewdocid = '/'.join(path_parts[1:])
+    brewdocid = p2.resource.split('/')[-1]
     recent_data = db.collection("brews").document(brewdocid).stream
     recent_entry = pd.DataFrame() #this creates the pandas dataframe containing all of the user feedback from the database
     for doc in recent_data: #iterates through the document stream
