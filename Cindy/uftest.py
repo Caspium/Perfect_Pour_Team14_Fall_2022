@@ -18,6 +18,8 @@ if not firebase_admin._apps: #using a if not statement to prevent overwriting ov
     #calls upon firebase admin library and inserts password key to gain access to private database
     default_app = firebase_admin.initialize_app(cred)
     
+db = firestore.client() #saves db as the database
+
 docs = db.collection('trainingandvalidating').stream() #reads from all documents in a collection of the database
 data = pd.DataFrame() #this creates the pandas dataframe containing all of the user feedback from the database
 for doc in docs: #iterates through the document stream 
@@ -49,7 +51,6 @@ data.dropna(subset=['target_saturation', 'strength', 'cup_size', 'grind_size', '
 #checking dataframe for there's any non-null responses
 data.info() 
 
-db = firestore.client() #saves db as the database
 #first splitting 60% out for training then 40% for validation & testing
 x_train, x_test, y_train, y_test = train_test_split(data[['roast_type','bean_type']].values, data[['grind_size']].values, test_size=0.2, random_state=42) 
 
