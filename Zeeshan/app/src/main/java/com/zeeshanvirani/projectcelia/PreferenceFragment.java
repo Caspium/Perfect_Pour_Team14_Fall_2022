@@ -141,14 +141,14 @@ public class PreferenceFragment extends PreferenceFragmentCompat implements Shar
                 if ( sp.getBoolean( "notifications_brewing_status", true) ) {
                     Snackbar.make(requireActivity().findViewById(R.id.settings_heading), "You will be notified about the status of your brews.", Snackbar.LENGTH_SHORT)
                             .show();
-                    new Thread(() -> {
-                        try {
-                            Thread.sleep( 5000 );
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        DataHandler.sendNotification( requireActivity(), "Test Notification", "This is a test", 1234);
-                    }).start();
+//                    new Thread(() -> {
+//                        try {
+//                            Thread.sleep( 5000 );
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                        DataHandler.sendNotification( requireActivity(), "Test Notification", "This is a test", 1234);
+//                    }).start();
                 } else {
                     Snackbar.make(requireActivity().findViewById(R.id.settings_heading), "You will no longer be notified about the status of your brews.", Snackbar.LENGTH_SHORT)
                             .show();

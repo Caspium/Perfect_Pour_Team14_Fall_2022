@@ -13,6 +13,11 @@ import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.w3c.dom.Document;
 
 public class RateDialogFragment extends DialogFragment {
 
@@ -78,12 +83,14 @@ public class RateDialogFragment extends DialogFragment {
                 }
 
                 // Update rating data in database
-                TempDatabaseClass.brewHistory_ratings[ Integer.parseInt( dataID ) ] = rating.getValue() + "/10";
+                //TempDatabaseClass.brewHistory_ratings[ Integer.parseInt( dataID ) ] = rating.getValue() + "/10";
+
                 // Let page know to refresh
-                adapter.notifyItemChanged( Integer.parseInt( dataID ) );
+                adapter.updateBrew( dataID, rating.getValue(), getSelectedStrength() );
+                //adapter.notifyItemChanged( Integer.parseInt( dataID ) );
 
                 // Update user's next strength in users collection
-                TempDatabaseClass.brewHistory_strength[ Integer.parseInt( dataID ) ] = getSelectedStrength();
+                //TempDatabaseClass.brewHistory_strength[ Integer.parseInt( dataID ) ] = getSelectedStrength();
 
                 dialog.dismiss();
             });

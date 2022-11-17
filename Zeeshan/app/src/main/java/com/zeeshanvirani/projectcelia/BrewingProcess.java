@@ -35,6 +35,7 @@ public class BrewingProcess extends AppCompatActivity {
 
     TextView brewing_text;
     MaterialButton returnhome_btn;
+    MaterialButton continuebrewing_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +50,11 @@ public class BrewingProcess extends AppCompatActivity {
         // Initialize views
         brewing_text = findViewById(R.id.brewing_text);
         returnhome_btn = findViewById(R.id.brewing_gohome);
+        continuebrewing_btn = findViewById(R.id.brewing_continuebrewing);
 
         // End activity on return button clicked
         returnhome_btn.setOnClickListener(view -> finish());
+        continuebrewing_btn.setOnClickListener(view -> continueBrewingClicked() );
 
         // Setup broadcast Receivers
         myReceiver = new MyBroadcastReceiver(this);
@@ -72,17 +75,23 @@ public class BrewingProcess extends AppCompatActivity {
 
     // Called when messages received from bluetooth input stream
     public void statusUpdate( String newStatus ) {
-        brewing_text.setText( newStatus ); // Set screen text to input stream message
         switch (newStatus) {
             case "OUT_OF_WATER":
+                brewing_text.setText("The reservoir is out of water.");
+                DataHandler.sendNotification( this, "Out of Water", "The water tank is out of water. Please refill and hit continue to resume brewing.", 1234);
+                continuebrewing_btn.setVisibility(View.VISIBLE);
                 return;
             case "UNKNOWN_ERROR":
                 return;
             case "STARTED_HEATING":
+                brewing_text.setText("Heating water.");
                 return;
             case "STARTED_POURING":
+                brewing_text.setText("Pouring water.");
                 return;
             case "BREWING_COMPLETE":
+                brewing_text.setText("Your coffee is ready!");
+                DataHandler.sendNotification( this, "Your coffee is ready!", "", 1234);
                 // DISCONNECT BLUETOOTH DEVICE
                 DataHandler.btSocketHandler.closeSocket();
                 DataHandler.btSocketHandler = null;
@@ -96,7 +105,7 @@ public class BrewingProcess extends AppCompatActivity {
     private void startPairing() {
         btAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        // Check if device has a bluetooth adapter
+        // If device does not have a bluetooth adapter, quit.
         if (btAdapter == null) return;
 
         try {
@@ -127,6 +136,14 @@ public class BrewingProcess extends AppCompatActivity {
         } catch (SecurityException | IOException e) {
             Log.d(TAG, "Error connecting to the device.");
         }
+    }
+
+    public void continueBrewingClicked() {
+        // Hide the button
+        continuebrewing_btn.setVisibility(View.GONE);
+        // Send the continue message
+        DataHandler.btSocketHandler.sendMessage("CONTINUE_BREWING");
+        // Status update will come from Pi
     }
 }
 
