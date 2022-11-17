@@ -4,6 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="brew_goodmorning">Good Morning,</string>
+    <string name="brew_goodafternoon">Good Afternoon,</string>
+    <string name="brew_goodevening">Good Evening,</string>
     <string name="brew_roasttype">Roast Type</string>
     <string name="brew_roasttype_l">L</string>
     <string name="brew_roasttype_m">M</string>
@@ -14,7 +16,7 @@
     <string name="brew_cupsize_medium">16 oz</string>
     <string name="brew_cupsize_large">20 oz</string>
     <string name="brew_startbrewing">Start Brewing</string>
-    <string name="history_clicktorate">Click to Rate!</string>
+    <string name="history_clicktorate">Rate?</string>
     <string name="history_brewinghistory">Brewing History</string>
     <string name="settings_heading">Settings</string>
     <string name="settings_account">Account</string>
@@ -36,5 +38,8 @@
     <string name="dialogchangepassword_newpassword">New Password</string>
     <string name="dialogchangepassword_confirmnewpassword">Confirm New Password</string>
 
+    <!--DialogChangeEmail-->
+    <string name="dialogchangeemail">New Email</string>
+    <string name="dialogchangeemailcurrentpassword">Current Password</string>
 
 </resources>
