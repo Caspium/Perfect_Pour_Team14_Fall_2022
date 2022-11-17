@@ -28,26 +28,27 @@ public class BluetoothSocketHandler {
         this.target_saturation = target_saturation;
         this.target_temp = target_temp;
         try {
+            Log.d(TAG, "Connecting to bluetooth device...");
             outputStream = btSocket.getOutputStream();
             inputStream = btSocket.getInputStream();
-            createConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Establishes a connection using the socket provided
-    // Starts the brewing process by sending the start message to the Pi
-    private void createConnection() {
-        try {
-            Log.d(TAG, "Connecting to Bluetooth Device.");
             btSocket.connect();
             new InputStreamThread().start();
             DataHandler.DEVICE_CONNECTED = true;
             Log.d(TAG, "Connected.");
-            sendMessage("START_BREW:" + target_temp + ":" + target_saturation);
+            bpInstance.statusUpdate("CONNECTED");
+
+            // Was app already brewing?
+            if ( !DataHandler.IS_BREWING )
+                sendMessage("START_BREW:" + target_temp + ":" + target_saturation);
+            else
+                Log.d(TAG, "There is already a brew in progress. Resuming...");
+
+            DataHandler.updateIsBrewing(bpInstance.getApplicationContext(), true);
+
         } catch (SecurityException | IOException e) {
             e.printStackTrace();
+            Log.d(TAG, "Unable to connect to device.");
+            bpInstance.statusUpdate("UNABLE_TO_CONNECT");
             closeSocket();
         }
     }
@@ -70,7 +71,8 @@ public class BluetoothSocketHandler {
     }
 
     // Sends the "msgToSend" to the Pi
-    public void sendMessage(String msgToSend ) {
+    public void sendMessage(String msgToSend) {
+        Log.d(TAG, msgToSend);
         try {
             outputStream.write( msgToSend.getBytes() );
         } catch (IOException e) {
@@ -94,6 +96,7 @@ public class BluetoothSocketHandler {
                     bpInstance.runOnUiThread(() -> bpInstance.statusUpdate(readMessage));
                 } catch (IOException e) {
                     Log.d(TAG, "Input Stream was Disconnected. " + e);
+                    DataHandler.DEVICE_CONNECTED = false;
                     break;
                 }
             }
