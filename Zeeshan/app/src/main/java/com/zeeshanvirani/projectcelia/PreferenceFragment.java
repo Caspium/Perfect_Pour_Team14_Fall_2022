@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
@@ -61,14 +60,13 @@ public class PreferenceFragment extends PreferenceFragmentCompat implements Shar
             );
         }
 
-        EditTextPreference emailPreference = findPreference("account_email");
+        Preference emailPreference = findPreference("account_email");
         if (emailPreference != null) {
-            emailPreference.setSummaryProvider((Preference.SummaryProvider<EditTextPreference>)
-                    EditTextPreference::getText
-            );
-            emailPreference.setOnBindEditTextListener(editText ->
-                    editText.setInputType( InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS)
-            );
+            emailPreference.setOnPreferenceClickListener(preference -> {
+                DialogFragment dialog = new ChangeEmailDialogFragment();
+                dialog.show(getActivity().getSupportFragmentManager(), "changee");
+                return true;
+            });
         }
 
         Preference changepassword_preference = findPreference("account_password");
@@ -95,19 +93,6 @@ public class PreferenceFragment extends PreferenceFragmentCompat implements Shar
                 return true;
             });
         }
-
-//        Preference deviceconnect_preference = findPreference("device_connect");
-//        if (deviceconnect_preference != null) {
-//            deviceconnect_preference.setTitle( DataHandler.DEVICE_CONNECTED ? "Disconnect Device" : "Connect Device" );
-//            deviceconnect_preference.setOnPreferenceClickListener(preference -> {
-//                DataHandler.DEVICE_CONNECTED = !DataHandler.DEVICE_CONNECTED;
-//                deviceconnect_preference.setTitle( DataHandler.DEVICE_CONNECTED ? "Disconnect Device" : "Connect Device" );
-//                if (deviceinformation_preference != null) {
-//                    deviceinformation_preference.setVisible( DataHandler.DEVICE_CONNECTED );
-//                }
-//                return true;
-//            });
-//        }
 
         Preference visitwebsite_preference = findPreference("visitwebsite");
         if (visitwebsite_preference != null) {
@@ -141,14 +126,6 @@ public class PreferenceFragment extends PreferenceFragmentCompat implements Shar
                 if ( sp.getBoolean( "notifications_brewing_status", true) ) {
                     Snackbar.make(requireActivity().findViewById(R.id.settings_heading), "You will be notified about the status of your brews.", Snackbar.LENGTH_SHORT)
                             .show();
-//                    new Thread(() -> {
-//                        try {
-//                            Thread.sleep( 5000 );
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
-//                        DataHandler.sendNotification( requireActivity(), "Test Notification", "This is a test", 1234);
-//                    }).start();
                 } else {
                     Snackbar.make(requireActivity().findViewById(R.id.settings_heading), "You will no longer be notified about the status of your brews.", Snackbar.LENGTH_SHORT)
                             .show();
@@ -187,10 +164,6 @@ public class PreferenceFragment extends PreferenceFragmentCompat implements Shar
                         .set(data, SetOptions.merge());
                 break;
 
-            case "account_email":
-                String newEmail = sp.getString( "account_email", "" );
-                FirebaseAuth.getInstance().getCurrentUser().updateEmail( newEmail );
-                break;
 
         }
     }
