@@ -84,10 +84,9 @@ def main(p1, p2):
 
 
     brewdocid = p2.resource.split('/')[-1]
-    recent_data = db.collection("brews").document(brewdocid).stream
+    recent_data = db.collection("brews").document(brewdocid).get()
     data = pd.DataFrame() #this creates the pandas dataframe containing all of the user feedback from the database
-    for doc in recent_data: #iterates through the document stream
-        data = data.append(doc.to_dict(),ignore_index=True) # appends it to my pandas dataframe
+    data = data.append(recent_data.to_dict(), ignore_index=True)
 
     # this replaces all of the string values of coffee bean type and converting it to float values
     data['bean_type'].loc[data['bean_type'] == 'Robusta'] = 1.0  # converting robusta to 1
@@ -104,22 +103,17 @@ def main(p1, p2):
     data = data._convert(numeric=True)  # converts all strings/objects into floats
 
 
-    if recent_entry['rating'].values == 10.0: #retains values if ratings are 10
+    if data['rating'].values == 10.0: #retains values if ratings are 10
         #runs knn prediction on rating, saturation, temp, strength, and grind to train model
-        rating_prediction = knn_strength.predict(recent_entry[['roast_type','bean_type']].values)
-        saturation_prediction = knn_sat.predict(recent_entry[['roast_type','bean_type']].values)
-        temp_prediction = knn_temp.predict(recent_entry[['roast_type','bean_type']].values)
-        strength_prediction = knn_strength.predict(recent_entry[['roast_type','bean_type']].values)
-        grind_prediction = knn_grind.predict(recent_entry[['roast_type','bean_type']].values)
+        saturation_prediction = knn_sat.predict(data[['roast_type','bean_type']].values)
+        temp_prediction = knn_temp.predict(data[['roast_type','bean_type']].values)
+        grind_prediction = knn_grind.predict(data[['roast_type','bean_type']].values)
         
-    elif recent_entry['rating'].values < 10.0: #implements algorithm if ratings are less than 10
+    elif data['rating'].values < 10.0: #implements algorithm if ratings are less than 10
         #runs knn prediction on rating, saturation, temp, strength, and grind to 
-
-        rating_prediction = knn_strength.predict(recent_entry[['roast_type','bean_type']].values)
-        saturation_prediction = knn_sat.predict(recent_entry[['roast_type','bean_type']].values)
-        temp_prediction = knn_temp.predict(recent_entry[['roast_type','bean_type']].values)
-        strength_prediction = knn_strength.predict(recent_entry[['roast_type','bean_type']].values)
-        grind_prediction = knn_grind.predict(recent_entry[['roast_type','bean_type']].values)
+        saturation_prediction = knn_sat.predict(data[['roast_type','bean_type']].values)
+        temp_prediction = knn_temp.predict(data[['roast_type','bean_type']].values)
+        grind_prediction = knn_grind.predict(data[['roast_type','bean_type']].values)
 
         for i in grind_prediction: #pulling data from grind prediction array to add to database
             grind_predict = i
@@ -134,7 +128,7 @@ def main(p1, p2):
             'grind_size': str(grind_predict)
         })
 
-        useridstring = recent_entry['user_id'].values #converting user id into string from array
+        useridstring = data['user_id'].values #converting user id into string from array
         for i in useridstring:
             useridstring = i
 
@@ -147,3 +141,4 @@ def main(p1, p2):
         })
 
         
+
