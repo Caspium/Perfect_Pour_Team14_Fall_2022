@@ -16,19 +16,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/onPrimary"
-        android:text="Model Number: 001" />
+        android:text="Model Number: 123" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/onPrimary"
-        android:text="Serial Number: 123456789" />
+        android:text="Serial Number: 123A000001" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/onPrimary"
-        android:text="MAC Address: B8:27:EB:B6:98:20" />
+        android:text="MAC Address: 5C:F3:70:70:14:FD" />
 
 
 </LinearLayout>
