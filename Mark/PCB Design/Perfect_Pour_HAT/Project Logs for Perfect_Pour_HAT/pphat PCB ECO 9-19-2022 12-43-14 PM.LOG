@@ -1,0 +1,14 @@
+Added Pin To Net: NetName=+5 Pin=GPIO-3
+Added Pin To Net: NetName=+5 Pin=I2C1-2
+Added Pin To Net: NetName=+5 Pin=I2C2-1
+Added Pin To Net: NetName=+5 Pin=I2C2-2
+Added Pin To Net: NetName=SCL Pin=I2C2-3
+Added Pin To Net: NetName=GND Pin=I2C2-4
+Added Pin To Net: NetName=GND Pin=TEMP2-1
+Added Pin To Net: NetName=SCL Pin=TEMP2-2
+Added Pin To Net: NetName=3V3 Pin=TEMP2-3
+Added Pin To Net: NetName=GND Pin=TEMP3-1
+Added Pin To Net: NetName=SCL Pin=TEMP3-2
+Added Pin To Net: NetName=3V3 Pin=TEMP3-3
+Change Net Name : Old Net Name=+5 New Net Name=SDA
+Added Room: Name=ppschem

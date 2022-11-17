@@ -1,0 +1,51 @@
+Removed Pin From Net: NetName=NetD1_2 Pin=Q1-2
+Removed Pin From Net: NetName=GND Pin=Q1-3
+Change Component Footprint: Designator=D1 Old Footprint=TO-18 New Footprint=LED-0
+Change Component Footprint: Designator=D2 Old Footprint=TO-18 New Footprint=LED-0
+Change Component Footprint: Designator=D3 Old Footprint=TO-18 New Footprint=LED-0
+Change Component Footprint: Designator=D4 Old Footprint=TO-18 New Footprint=LED-0
+Change Component Footprint: Designator=D5 Old Footprint=TO-18 New Footprint=LED-0
+Change Component Footprint: Designator=D6 Old Footprint=TO-18 New Footprint=LED-0
+Change Component Footprint: Designator=D7 Old Footprint=TO-18 New Footprint=LED-0
+Change Component Footprint: Designator=D8 Old Footprint=TO-18 New Footprint=LED-0
+Change Component Footprint: Designator=Q1 Old Footprint=TO-220AB New Footprint=FP-SOT23-MFG
+Change Component Comment : Designator=Q1 Old Comment=NMOS-2 New Comment=DMG2302U-7
+Change Managed Component Library Link : Designator=Q1 Old VaultGUID= New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID= New ItemGUID=189386C5-1851-44C1-BBBC-DF66D466D402 Old RevisionGUID= New RevisionGUID=00B7A0F9-DA7B-46AB-80B3-6BD0BCE2CB46
+Change component parameters: Designator = "Q1" ("Q1"); Footprint = "TO-220AB"; UniqueID = "\BHGFCROH" ("\BHGFCROH")
+Change component parameters (AddParameter): Name = "Case/Package"; Value = "SOT-23-3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Continuous Drain Current (ID)"; Value = "4.2A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Drain to Source Breakdown Voltage"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Drain to Source Resistance"; Value = "90mR"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Drain to Source Voltage (Vdss)"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Element Configuration"; Value = "Single"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Fall Time"; Value = "6.7ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "FET Type"; Value = "1 N-Channel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Gate to Source Voltage (Vgs)"; Value = "8V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "1mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Input Capacitance"; Value = "594.3pF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "3mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "150°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Power Dissipation"; Value = "800mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-55°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Channels"; Value = "1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Elements"; Value = "1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "On-State Resistance"; Value = "90MR"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "3000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power Dissipation"; Value = "800mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Radiation Hardening"; Value = "No"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rds On Max"; Value = "90mR"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "REACH SVHC"; Value = "No SVHC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rise Time"; Value = "9.8ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Threshold Voltage"; Value = "1V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Turn-Off Delay Time"; Value = "28.1ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Turn-On Delay Time"; Value = "7.4ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Weight"; Value = "0.000282oz"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "1.4mm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=Q1-2
+Added Pin To Net: NetName=NetD1_2 Pin=Q1-3
+Added Pin To Net: NetName=NetQ1_1 Pin=R9-2
+Added Room: Name=Sheet1

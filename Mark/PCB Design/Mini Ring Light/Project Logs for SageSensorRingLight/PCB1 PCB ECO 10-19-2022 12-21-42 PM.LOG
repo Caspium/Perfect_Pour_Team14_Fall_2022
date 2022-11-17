@@ -1,0 +1,75 @@
+Change Component Designator: OldDesignator= NewDesignator=P1
+Change Component Designator: OldDesignator= NewDesignator=R9
+Change Component Designator: OldDesignator= NewDesignator=R10
+Change Component Designator: OldDesignator= NewDesignator=R11
+Change Component Designator: OldDesignator= NewDesignator=U1
+Added Component: Designator=J1(HRS_DF17(3.0)-40DS-0.5V(57))
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DF17(3.0)-40DS-0.5V(57)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=PDBIAS(TECO-5-1814832-1_V)
+Add component (AddParameter): Name = "Coaxial Cable Types"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Coaxial Termination"; Value = "Solder"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector Body Style"; Value = "StraightJack"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector Mounting"; Value = "PCBMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector Type"; Value = "SMACoaxial"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Material"; Value = "BerylliumCopper"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = "GoldPlatedContacts"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://www.onlinecomponents.com/productFiles/mf-AMP/eng_cd_1814832_a.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Rev. B1, 03/2011"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Frequency Max"; Value = "3GHz"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Impedance"; Value = "50ohm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.te.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "SMA Connector, Pitch 5.08 mm, 1 Position, Height 9.5 mm, Tail Length 4 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "5-1814832-1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Product Range"; Value = "ZDCSeries"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SVHC"; Value = "NoSVHC(15-Jun-2015)"; VariantName = "[No Variations]"
+Added Component: Designator=PDCURR(TECO-5-1814832-1_V)
+Add component (AddParameter): Name = "Coaxial Cable Types"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Coaxial Termination"; Value = "Solder"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector Body Style"; Value = "StraightJack"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector Mounting"; Value = "PCBMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector Type"; Value = "SMACoaxial"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Material"; Value = "BerylliumCopper"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = "GoldPlatedContacts"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://www.onlinecomponents.com/productFiles/mf-AMP/eng_cd_1814832_a.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Rev. B1, 03/2011"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Frequency Max"; Value = "3GHz"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Impedance"; Value = "50ohm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.te.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "SMA Connector, Pitch 5.08 mm, 1 Position, Height 9.5 mm, Tail Length 4 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "5-1814832-1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Product Range"; Value = "ZDCSeries"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SVHC"; Value = "NoSVHC(15-Jun-2015)"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=GND Pin=J1-2
+Added Pin To Net: NetName=GND Pin=J1-19
+Added Pin To Net: NetName=GND Pin=J1-20
+Added Pin To Net: NetName=GND Pin=J1-21
+Added Pin To Net: NetName=GND Pin=J1-22
+Added Pin To Net: NetName=GND Pin=J1-39
+Added Pin To Net: NetName=GND Pin=J1-40
+Added Pin To Net: NetName=GND Pin=J1-S1
+Added Pin To Net: NetName=GND Pin=J1-S2
+Added Pin To Net: NetName=GND Pin=PDBIAS-2
+Added Pin To Net: NetName=GND Pin=PDBIAS-3
+Added Pin To Net: NetName=GND Pin=PDBIAS-4
+Added Pin To Net: NetName=GND Pin=PDBIAS-5
+Added Pin To Net: NetName=GND Pin=PDCURR-2
+Added Pin To Net: NetName=GND Pin=PDCURR-3
+Added Pin To Net: NetName=GND Pin=PDCURR-4
+Added Pin To Net: NetName=GND Pin=PDCURR-5
+Added Member To Class: ClassName=Sheet1 Member=Component J1 DF17(3.0)-40DS-0.5V(57)
+Added Member To Class: ClassName=Sheet1 Member=Component P1 61300511121
+Added Member To Class: ClassName=Sheet1 Member=Component PDBIAS 5-1814832-1
+Added Member To Class: ClassName=Sheet1 Member=Component PDCURR 5-1814832-1
+Added Member To Class: ClassName=Sheet1 Member=Component R9 Res1
+Added Member To Class: ClassName=Sheet1 Member=Component R10 Res1
+Added Member To Class: ClassName=Sheet1 Member=Component R11 Res1
+Added Member To Class: ClassName=Sheet1 Member=Component U1 TLC59108FIPWR
+Added Room: Name=Sheet1

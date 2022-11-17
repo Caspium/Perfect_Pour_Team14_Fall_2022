@@ -1,0 +1,41 @@
+Removed Pin From Net: NetName=GND Pin=J1-1
+Removed Pin From Net: NetName=GND Pin=J1-2
+Removed Pin From Net: NetName=GND Pin=J1-19
+Removed Pin From Net: NetName=GND Pin=J1-20
+Removed Pin From Net: NetName=GND Pin=J1-21
+Removed Pin From Net: NetName=GND Pin=J1-22
+Removed Pin From Net: NetName=GND Pin=J1-39
+Removed Pin From Net: NetName=GND Pin=J1-40
+Removed Pin From Net: NetName=GND Pin=J1-S1
+Removed Pin From Net: NetName=GND Pin=J1-S2
+Added Pin To Net: NetName=Bias Pin=J1-1
+Added Pin To Net: NetName=Bias Pin=J1-2
+Added Pin To Net: NetName=Bias Pin=J1-19
+Added Pin To Net: NetName=Bias Pin=J1-20
+Added Pin To Net: NetName=Bias Pin=J1-21
+Added Pin To Net: NetName=Bias Pin=J1-22
+Added Pin To Net: NetName=Bias Pin=J1-39
+Added Pin To Net: NetName=Bias Pin=J1-40
+Added Pin To Net: NetName=Bias Pin=J1-S1
+Added Pin To Net: NetName=Bias Pin=J1-S2
+Added Pin To Net: NetName=Bias Pin=PDBIAS-1
+Added Net: Name=Bias
+Added Pin To Net: NetName=CURR Pin=J1-3
+Added Pin To Net: NetName=CURR Pin=J1-5
+Added Pin To Net: NetName=CURR Pin=J1-7
+Added Pin To Net: NetName=CURR Pin=J1-9
+Added Pin To Net: NetName=CURR Pin=J1-11
+Added Pin To Net: NetName=CURR Pin=J1-13
+Added Pin To Net: NetName=CURR Pin=J1-15
+Added Pin To Net: NetName=CURR Pin=J1-17
+Added Pin To Net: NetName=CURR Pin=J1-24
+Added Pin To Net: NetName=CURR Pin=J1-26
+Added Pin To Net: NetName=CURR Pin=J1-28
+Added Pin To Net: NetName=CURR Pin=J1-30
+Added Pin To Net: NetName=CURR Pin=J1-32
+Added Pin To Net: NetName=CURR Pin=J1-34
+Added Pin To Net: NetName=CURR Pin=J1-36
+Added Pin To Net: NetName=CURR Pin=J1-38
+Added Pin To Net: NetName=CURR Pin=PDCURR-1
+Added Net: Name=CURR
+Added Room: Name=Sheet1

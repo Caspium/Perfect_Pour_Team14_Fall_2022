@@ -1,0 +1,57 @@
+Change Component Designator: OldDesignator= NewDesignator=P1
+Change Component Designator: OldDesignator= NewDesignator=R9
+Change Component Designator: OldDesignator= NewDesignator=R10
+Change Component Designator: OldDesignator= NewDesignator=R11
+Change Component Designator: OldDesignator= NewDesignator=U1
+Added Component: Designator=J1(HRS_DF17(3.0)-40DS-0.5V(57))
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DF17(3.0)-40DS-0.5V(57)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=PDBIAS(MOLX-731000114_V)
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://www.molex.com/webdocs/datasheets/pdf/en-us/0731000114_RF_COAX_CONNECTORS.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "09/2016"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Molex"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.molex.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "ThroughHole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "5-Pin Through Hole Device, Body 14.8 x 6.35 mm, Pitch 2.54 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "731000114"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package URL"; Value = "http://www.molex.com/pdm_docs/sd/731000114_sd.pdf"; VariantName = "[No Variations]"
+Added Component: Designator=PDCURR(MOLX-731000114_V)
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://www.molex.com/webdocs/datasheets/pdf/en-us/0731000114_RF_COAX_CONNECTORS.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "09/2016"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Molex"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.molex.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "ThroughHole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "5-Pin Through Hole Device, Body 14.8 x 6.35 mm, Pitch 2.54 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "731000114"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package URL"; Value = "http://www.molex.com/pdm_docs/sd/731000114_sd.pdf"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=GND Pin=J1-2
+Added Pin To Net: NetName=GND Pin=J1-19
+Added Pin To Net: NetName=GND Pin=J1-20
+Added Pin To Net: NetName=GND Pin=J1-21
+Added Pin To Net: NetName=GND Pin=J1-22
+Added Pin To Net: NetName=GND Pin=J1-39
+Added Pin To Net: NetName=GND Pin=J1-40
+Added Pin To Net: NetName=GND Pin=J1-S1
+Added Pin To Net: NetName=GND Pin=J1-S2
+Added Pin To Net: NetName=GND Pin=PDBIAS-2
+Added Pin To Net: NetName=GND Pin=PDBIAS-3
+Added Pin To Net: NetName=GND Pin=PDBIAS-4
+Added Pin To Net: NetName=GND Pin=PDBIAS-5
+Added Pin To Net: NetName=GND Pin=PDCURR-2
+Added Pin To Net: NetName=GND Pin=PDCURR-3
+Added Pin To Net: NetName=GND Pin=PDCURR-4
+Added Pin To Net: NetName=GND Pin=PDCURR-5
+Added Member To Class: ClassName=Sheet1 Member=Component J1 DF17(3.0)-40DS-0.5V(57)
+Added Member To Class: ClassName=Sheet1 Member=Component P1 61300511121
+Added Member To Class: ClassName=Sheet1 Member=Component PDBIAS 731000114
+Added Member To Class: ClassName=Sheet1 Member=Component PDCURR 731000114
+Added Member To Class: ClassName=Sheet1 Member=Component R9 Res1
+Added Member To Class: ClassName=Sheet1 Member=Component R10 Res1
+Added Member To Class: ClassName=Sheet1 Member=Component R11 Res1
+Added Member To Class: ClassName=Sheet1 Member=Component U1 TLC59108FIPWR
+Added Room: Name=Sheet1
