@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [Perfect_Pour_HAT.PrjPcb]
+   Generated File[pphat.TXT]
+   Generated File[pphat.LDP]
+   Generated File[pphat.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 10:51:44 AM On 10/24/2022

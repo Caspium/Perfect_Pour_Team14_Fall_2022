@@ -1,0 +1,8 @@
+Change Component Designator: OldDesignator=P? NewDesignator=P1
+Change Component Designator: OldDesignator=U? NewDesignator=U1
+Change Net Name : Old Net Name=NetP?_2 New Net Name=NetP1_2
+Change Net Name : Old Net Name=NetP?_3 New Net Name=NetP1_3
+Change Net Name : Old Net Name=NetP?_4 New Net Name=NetP1_4
+Added Member To Class: ClassName=Sheet1 Member=Component P1 61300511121
+Added Member To Class: ClassName=Sheet1 Member=Component U1 TLC59108FIPWR
+Added Room: Name=Sheet1

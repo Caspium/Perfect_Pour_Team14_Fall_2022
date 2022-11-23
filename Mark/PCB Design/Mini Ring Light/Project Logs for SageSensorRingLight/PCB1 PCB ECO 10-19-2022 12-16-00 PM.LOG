@@ -1,0 +1,49 @@
+Change Component Designator: OldDesignator= NewDesignator=P1
+Change Component Designator: OldDesignator= NewDesignator=R9
+Change Component Designator: OldDesignator= NewDesignator=R10
+Change Component Designator: OldDesignator= NewDesignator=R11
+Change Component Designator: OldDesignator= NewDesignator=U1
+Added Component: Designator=J1(HRS_DF17(3.0)-40DS-0.5V(57))
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DF17(3.0)-40DS-0.5V(57)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=PDBIAS(CON-SMA-SMD)
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "revB, Sep-2009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "SMA Female PCB Mount, Surface Mount Connector, 7 x 7 mm Body"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "CON-SMA-SMD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "revB, Sep-2009"; VariantName = "[No Variations]"
+Added Component: Designator=PDCURR(CON-SMA-SMD)
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "revB, Sep-2009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "SMA Female PCB Mount, Surface Mount Connector, 7 x 7 mm Body"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "CON-SMA-SMD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "revB, Sep-2009"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=GND Pin=J1-2
+Added Pin To Net: NetName=GND Pin=J1-19
+Added Pin To Net: NetName=GND Pin=J1-20
+Added Pin To Net: NetName=GND Pin=J1-21
+Added Pin To Net: NetName=GND Pin=J1-22
+Added Pin To Net: NetName=GND Pin=J1-39
+Added Pin To Net: NetName=GND Pin=J1-40
+Added Pin To Net: NetName=GND Pin=J1-S1
+Added Pin To Net: NetName=GND Pin=J1-S2
+Added Pin To Net: NetName=GND Pin=PDBIAS-2
+Added Pin To Net: NetName=GND Pin=PDBIAS-3
+Added Pin To Net: NetName=GND Pin=PDBIAS-4
+Added Pin To Net: NetName=GND Pin=PDBIAS-5
+Added Pin To Net: NetName=GND Pin=PDCURR-2
+Added Pin To Net: NetName=GND Pin=PDCURR-3
+Added Pin To Net: NetName=GND Pin=PDCURR-4
+Added Pin To Net: NetName=GND Pin=PDCURR-5
+Added Member To Class: ClassName=Sheet1 Member=Component J1 DF17(3.0)-40DS-0.5V(57)
+Added Member To Class: ClassName=Sheet1 Member=Component P1 61300511121
+Added Member To Class: ClassName=Sheet1 Member=Component PDBIAS CONSMA001-SMD
+Added Member To Class: ClassName=Sheet1 Member=Component PDCURR CONSMA001-SMD
+Added Member To Class: ClassName=Sheet1 Member=Component R9 Res1
+Added Member To Class: ClassName=Sheet1 Member=Component R10 Res1
+Added Member To Class: ClassName=Sheet1 Member=Component R11 Res1
+Added Member To Class: ClassName=Sheet1 Member=Component U1 TLC59108FIPWR
+Added Room: Name=Sheet1

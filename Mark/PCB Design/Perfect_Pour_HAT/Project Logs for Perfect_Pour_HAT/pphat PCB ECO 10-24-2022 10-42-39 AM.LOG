@@ -1,0 +1,152 @@
+Removed Pin From Net: NetName=SCL Pin=GPIO-5
+Removed Pin From Net: NetName=GPIO22 Pin=HEAT-1
+Removed Pin From Net: NetName=SCL Pin=I2C1-3
+Removed Pin From Net: NetName=SCL Pin=I2C2-3
+Removed Pin From Net: NetName=GND Pin=VALVE-2
+Added Component: Designator=D?(DIOD-DO-41-P-2_V)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://diodes.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://diodes.com/datasheets/ds28002.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CT (pF)"; Value = "15"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Rev. 8-2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Diodes Inc"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max. Average Rectified Current IO (A)"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max. IFSM (A)"; Value = "30"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max. IR (uA)"; Value = "5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Through Hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature Range (degC)"; Value = "-65 to 150"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "2-Pin Axial Lead, Body 4.635 x 2.36 mm, Lead Spread 25.4 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "DO-41-P-2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packing"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "1N4001-T"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "TRUE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VF (V)"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VRRM (V)"; Value = "50"; VariantName = "[No Variations]"
+Added Component: Designator=I?(61300411121)
+Add component (AddParameter): Name = "Contact Resistance"; Value = "20mOhm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "https://katalog.we-online.de/em/datasheet/6130xx11121.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Gender"; Value = "Male"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.we-online.de"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "THT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature"; Value = "-40to105degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Orientation"; Value = "Vertical"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "61300411121"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Bag"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "61300411121"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pin Number"; Value = "4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "WurthElektronik"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Current"; Value = "3A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Row Number"; Value = "Single"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Withstanding Voltage"; Value = "500VAC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Working Voltage"; Value = "250VAC"; VariantName = "[No Variations]"
+Added Component: Designator=Q?(FP-PG-TO220-3-MFG)
+Add component (AddParameter): Name = "Case/Package"; Value = "TO-220"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Continuous Drain Current (ID)"; Value = "47A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Drain to Source Breakdown Voltage"; Value = "55V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Drain to Source Resistance"; Value = "35mR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Drain to Source Voltage (Vdss)"; Value = "55V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Element Configuration"; Value = "Single"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Gate to Source Voltage (Vgs)"; Value = "16V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Halogen Free"; Value = "Halogen Free"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "0.6inch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Input Capacitance"; Value = "1.7nF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "0.414inch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Dual Supply Voltage"; Value = "55V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "175°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Power Dissipation"; Value = "110W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-55°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = "Through Hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Pins"; Value = "3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Rail/Tube"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Dissipation"; Value = "110W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rds On Max"; Value = "22mR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = "No SVHC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Threshold Voltage"; Value = "2V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Turn-Off Delay Time"; Value = "26ns"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Turn-On Delay Time"; Value = "11ns"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Width"; Value = "0.185inch"; VariantName = "[No Variations]"
+Added Component: Designator=Q?(FP-PG-TO220-3-MFG)
+Add component (AddParameter): Name = "Case/Package"; Value = "TO-220"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Continuous Drain Current (ID)"; Value = "47A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Drain to Source Breakdown Voltage"; Value = "55V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Drain to Source Resistance"; Value = "35mR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Drain to Source Voltage (Vdss)"; Value = "55V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Element Configuration"; Value = "Single"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Gate to Source Voltage (Vgs)"; Value = "16V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Halogen Free"; Value = "Halogen Free"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "0.6inch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Input Capacitance"; Value = "1.7nF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "0.414inch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Dual Supply Voltage"; Value = "55V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "175°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Power Dissipation"; Value = "110W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-55°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = "Through Hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Pins"; Value = "3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Rail/Tube"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Dissipation"; Value = "110W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rds On Max"; Value = "22mR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = "No SVHC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Threshold Voltage"; Value = "2V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Turn-Off Delay Time"; Value = "26ns"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Turn-On Delay Time"; Value = "11ns"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Width"; Value = "0.185inch"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.3)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.3)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+12 Pin=D?-2
+Added Pin To Net: NetName=SCL Pin=GPIO-7
+Added Pin To Net: NetName=+5 Pin=I?-1
+Added Pin To Net: NetName=SDA Pin=I?-2
+Added Pin To Net: NetName=GND Pin=I?-4
+Added Pin To Net: NetName=GPIO22 Pin=Q?-1
+Added Pin To Net: NetName=+5 Pin=Q?-2
+Added Pin To Net: NetName=GND Pin=Q?-3
+Added Pin To Net: NetName=3V3 Pin=R?-1
+Added Pin To Net: NetName=GND Pin=R?-2
+Added Pin To Net: NetName=GPIO22 Pin=R?-2
+Added Pin To Net: NetName=+12 Pin=VALVE-1
+Change Net Name : Old Net Name=SCL New Net Name=ONEWIRE
+Added Pin To Net: NetName=GPIO12 Pin=GPIO-32
+Added Pin To Net: NetName=GPIO12 Pin=Q?-1
+Added Net: Name=GPIO12
+Added Pin To Net: NetName=NetD?_1 Pin=D?-1
+Added Pin To Net: NetName=NetD?_1 Pin=Q?-2
+Added Pin To Net: NetName=NetD?_1 Pin=VALVE-2
+Added Net: Name=NetD?_1
+Added Pin To Net: NetName=NetHEAT_1 Pin=HEAT-1
+Added Pin To Net: NetName=NetHEAT_1 Pin=Q?-3
+Added Pin To Net: NetName=NetHEAT_1 Pin=R?-1
+Added Net: Name=NetHEAT_1
+Added Pin To Net: NetName=SCL Pin=GPIO-5
+Added Pin To Net: NetName=SCL Pin=I2C1-3
+Added Pin To Net: NetName=SCL Pin=I2C2-3
+Added Pin To Net: NetName=SCL Pin=I?-3
+Added Net: Name=SCL
+Added Member To Class: ClassName=ppschem Member=Component D? 1N4001-T
+Added Member To Class: ClassName=ppschem Member=Component I? 61300411121
+Added Member To Class: ClassName=ppschem Member=Component Q? IRLZ44NPbF
+Added Member To Class: ClassName=ppschem Member=Component Q? IRLZ44NPbF
+Added Member To Class: ClassName=ppschem Member=Component R? Res1
+Added Member To Class: ClassName=ppschem Member=Component R? Res1
+Added Room: Name=ppschem
