@@ -16,17 +16,19 @@ public class BluetoothSocketHandler {
 
     private final String target_temp;
     private final String target_saturation;
+    private final String cupsize;
 
     private OutputStream outputStream;
     private InputStream inputStream;
 
     // Constructor
     public BluetoothSocketHandler( BrewingProcess instance, BluetoothSocket btSocket,
-                                   String target_temp, String target_saturation ) {
+                                   String target_temp, String target_saturation, String cupsize ) {
         this.bpInstance = instance;
         this.btSocket = btSocket;
         this.target_saturation = target_saturation;
         this.target_temp = target_temp;
+        this.cupsize = cupsize;
         try {
             Log.d(TAG, "Connecting to bluetooth device...");
             outputStream = btSocket.getOutputStream();
@@ -39,7 +41,7 @@ public class BluetoothSocketHandler {
 
             // Was app already brewing?
             if ( !DataHandler.IS_BREWING )
-                sendMessage("START_BREW:" + target_temp + ":" + target_saturation);
+                sendMessage("START_BREW:" + target_temp + ":" + target_saturation + ":" + cupsize);
             else
                 Log.d(TAG, "There is already a brew in progress. Resuming...");
 

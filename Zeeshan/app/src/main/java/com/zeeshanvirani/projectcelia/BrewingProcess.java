@@ -31,11 +31,12 @@ public class BrewingProcess extends AppCompatActivity {
     public static final String TAG_FIREBASE_ID = "firebaseid";
     public static final String TAG_TEMPERATURE = "temperature";
     public static final String TAG_TARGET_SATURATION = "saturation";
+    public static final String TAG_CUP_SIZE = "cupsize";
 
     private BluetoothAdapter btAdapter;
     private BluetoothSocket btSocket;
 
-    private String temperature, target_saturation, firebaseid;
+    private String temperature, target_saturation, firebaseid, cupsize;
 
     TextView brewing_text;
     MaterialButton returnhome_btn;
@@ -51,6 +52,7 @@ public class BrewingProcess extends AppCompatActivity {
         temperature = i.getStringExtra(TAG_TEMPERATURE);
         target_saturation = i.getStringExtra(TAG_TARGET_SATURATION);
         firebaseid = i.getStringExtra(TAG_FIREBASE_ID);
+        cupsize = i.getStringExtra(TAG_CUP_SIZE);
 
         // Initialize views
         brewing_text = findViewById(R.id.brewing_text);
@@ -184,7 +186,7 @@ public class BrewingProcess extends AppCompatActivity {
             btAdapter.cancelDiscovery();
             Log.d(TAG, "Found a device. Attempting to connect.");
             btSocket = device.createInsecureRfcommSocketToServiceRecord( DataHandler.MY_UUID );
-            DataHandler.btSocketHandler = new BluetoothSocketHandler( this, btSocket, temperature, target_saturation );
+            DataHandler.btSocketHandler = new BluetoothSocketHandler( this, btSocket, temperature, target_saturation, cupsize );
         } catch (SecurityException | IOException e) {
             Log.d(TAG, "Error connecting to the device.");
         }

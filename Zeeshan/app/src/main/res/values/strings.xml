@@ -12,9 +12,9 @@
     <string name="brew_roasttype_md">MD</string>
     <string name="brew_roasttype_d">D</string>
     <string name="brew_cupsize">Cup Size</string>
-    <string name="brew_cupsize_small">8 oz</string>
-    <string name="brew_cupsize_medium">16 oz</string>
-    <string name="brew_cupsize_large">20 oz</string>
+    <string name="brew_cupsize_small">12 oz</string>
+    <string name="brew_cupsize_medium">24 oz</string>
+    <string name="brew_cupsize_large">32 oz</string>
     <string name="brew_startbrewing">Start Brewing</string>
     <string name="history_clicktorate">Rate?</string>
     <string name="history_brewinghistory">Brewing History</string>

@@ -168,6 +168,7 @@ public class BrewFragment extends Fragment {
                                         i.putExtra(BrewingProcess.TAG_FIREBASE_ID, documentID);
                                         i.putExtra(BrewingProcess.TAG_TEMPERATURE, next_temp);
                                         i.putExtra(BrewingProcess.TAG_TARGET_SATURATION, next_sat);
+                                        i.putExtra(BrewingProcess.TAG_CUP_SIZE, getSelectedSize().replace(" oz", ""));
                                         startActivity(i);
                             });
                 });
