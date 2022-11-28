@@ -4,7 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_brewing_process.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/activity_launch.xml" value="0.22777777777777777" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/brew_history_card.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/dialog_change_email.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/dialog_change_password.xml" value="0.22777777777777777" />
+        <entry key="app/src/main/res/layout/dialog_device_information.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/dialog_feedback_recommendation.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/dialog_rate_brew.xml" value="0.24153846153846154" />
         <entry key="app/src/main/res/layout/fragment_brew.xml" value="0.22777777777777777" />
+        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.22777777777777777" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/preferences_password_dialog.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/layout/rate_coffee_dialog.xml" value="0.24153846153846154" />
+        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.24153846153846154" />
       </map>
     </option>
   </component>

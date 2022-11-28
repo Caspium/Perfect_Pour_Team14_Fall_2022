@@ -1,7 +1,10 @@
 package com.zeeshanvirani.projectcelia;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +25,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -33,6 +38,8 @@ public class BrewFragment extends Fragment {
 
     // Define global variables
     private final FirebaseFirestore fsInstance = FirebaseFirestore.getInstance();
+
+    private TextView heading;
 
     private Button[] roastTypeButtons;
     private Button[] cupSizeButtons;
@@ -52,6 +59,14 @@ public class BrewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_brew, container, false);
 
         // Initialize views within ViewGroup
+        heading = view.findViewById(R.id.heading);
+        if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) < 12)
+            heading.setText(R.string.brew_goodmorning);
+        else if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) < 17)
+            heading.setText(R.string.brew_goodafternoon);
+        else
+            heading.setText(R.string.brew_goodevening);
+
         Button roast_light_btn = view.findViewById(R.id.button_roast_light);
         Button roast_medium_btn = view.findViewById(R.id.button_roast_medium);
         Button roast_mediumdark_btn = view.findViewById(R.id.button_roast_mediumdark);
@@ -106,6 +121,16 @@ public class BrewFragment extends Fragment {
                 return;
             }
 
+            // Check if there is an internet connection
+            ConnectivityManager connectivityManager = (ConnectivityManager)requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            if ( networkInfo == null || !networkInfo.isConnectedOrConnecting() ) {
+                Toast.makeText(requireActivity(), "No Internet Connection available.",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Add a brew item to the database
             if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                 DocumentReference docRef = FirebaseFirestore.getInstance().collection("users")
                         .document(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -126,23 +151,25 @@ public class BrewFragment extends Fragment {
                     brew.put(DataHandler.DB_CUP_SIZE, getSelectedSize());
                     brew.put(DataHandler.DB_RATING, "null");
                     brew.put(DataHandler.DB_STRENGTH, "null");
-
+                    brew.put(DataHandler.DB_STATUS, DataHandler.DB_STATUS_STARTED);
 
                     String next_temp = (String) documentSnapshot.get("next_target_temperature");
                     String next_sat = (String) documentSnapshot.get("next_target_saturation");
                     brew.put(DataHandler.DB_TEMPERATURE, next_temp);
                     brew.put(DataHandler.DB_TARGET_SATURATION, next_sat);
 
-                    // Calculate target temps and sats from cindy's algorithm
-
                     // Store this into database
-                    fsInstance.collection("brews").add(brew);
-
-                    // Create extra for intents
-                    Intent i = new Intent(requireActivity().getApplicationContext(), BrewingProcess.class);
-                    i.putExtra(BrewingProcess.TAG_TEMPERATURE, next_temp);
-                    i.putExtra(BrewingProcess.TAG_TARGET_SATURATION, next_sat);
-                    startActivity(i);
+                    String documentID = new SimpleDateFormat("MMMddyyyyHHmmss", Locale.US).format(new Date()) +
+                            FirebaseAuth.getInstance().getCurrentUser().getUid().substring(0, 8);
+                    fsInstance.collection("brews").document(documentID).set(brew)
+                            .addOnSuccessListener(documentReference -> {
+                                        // Create extra for intents
+                                        Intent i = new Intent(requireActivity().getApplicationContext(), BrewingProcess.class);
+                                        i.putExtra(BrewingProcess.TAG_FIREBASE_ID, documentID);
+                                        i.putExtra(BrewingProcess.TAG_TEMPERATURE, next_temp);
+                                        i.putExtra(BrewingProcess.TAG_TARGET_SATURATION, next_sat);
+                                        startActivity(i);
+                            });
                 });
             }
         });

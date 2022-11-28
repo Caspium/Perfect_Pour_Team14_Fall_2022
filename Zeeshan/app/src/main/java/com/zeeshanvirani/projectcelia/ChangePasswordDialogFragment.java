@@ -7,12 +7,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.regex.Pattern;
 
 public class ChangePasswordDialogFragment extends DialogFragment {
 
@@ -62,14 +65,24 @@ public class ChangePasswordDialogFragment extends DialogFragment {
                     return;
                 }
                 // Check if both password fields match
-                if (password.getText().equals(confirmpassword.getText())) {
+                if (password.getText().toString().equals(confirmpassword.getText().toString())) {
+                    if ( !isValidPassword(password.getText().toString()) ) {
+                        Log.d(TAG, "Password does not meet requirements. Must be at least 6 characters long.");
+                        Toast.makeText(dialog.getContext(), "Password does not meet requirements. Must be at least 6 characters long.",
+                                Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     assert FirebaseAuth.getInstance().getCurrentUser() != null;
                     FirebaseAuth.getInstance().getCurrentUser().updatePassword( password.getText().toString() )
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "User password has been updated.");
+                                    Toast.makeText(dialog.getContext(), "Password has been updated.",
+                                            Toast.LENGTH_LONG).show();
                                 } else {
                                     Log.d(TAG, "Error occurred. Password not updated.");
+                                    Toast.makeText(dialog.getContext(), "Error has occurred. Password was not updated.",
+                                            Toast.LENGTH_LONG).show();
                                 }
                             });
                     dialog.dismiss();
@@ -80,5 +93,13 @@ public class ChangePasswordDialogFragment extends DialogFragment {
                 }
             });
         }
+    }
+
+    // Regex checker to see if the password is at least 6 characters
+    private boolean isValidPassword( String password ) {
+        String passwordRegex = "(?=.*[0-9a-zA-Z]).{6,}";
+        Pattern pat = Pattern.compile(passwordRegex);
+        if ( password == null ) return false;
+        return pat.matcher(password).matches();
     }
 }

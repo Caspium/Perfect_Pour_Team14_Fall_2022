@@ -14,18 +14,24 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
-// Handles all modifications of stored local data
+// Static fields that are shared across the application
+// Handles sending and retrieving various pieces of data
 public class DataHandler {
 
     public static final String TAG = "ProjectCelia:DataHandler";
 
+    // Bluetooth Connection Information
+    public static boolean IS_BREWING = false;
     public static boolean DEVICE_CONNECTED = false;
     public static BluetoothSocketHandler btSocketHandler = null;
-    public static String DEVICE_MACADDR = "B8:27:EB:B6:98:20";
+    public static String DEVICE_MACADDR = "5C:F3:70:70:14:FD";
     public static UUID MY_UUID = UUID.fromString("b3f75a8f-fa4b-4dbc-8e79-51a486a30fa9");
 
+    // Database Variables
     public static String DB_USER_ID = "user_id";
     public static String DB_DATE = "date";
     public static String DB_TIME = "time";
@@ -36,8 +42,16 @@ public class DataHandler {
     public static String DB_TEMPERATURE = "temperature";
     public static String DB_TARGET_SATURATION = "target_saturation";
     public static String DB_STRENGTH = "strength";
+    public static String DB_STATUS = "status";
+    public static String DB_COARSENESS_RECOMMENDATION = "grind_size";
 
+    public static String DB_STATUS_STARTED = "started";
+    public static String DB_STATUS_ERROR = "error";
+    public static String DB_STATUS_DONE = "done";
+
+    // Notification Manager Information
     static String CHANNEL_ID = "com.zeeshanvirani.projectcelia.notifications";
+    enum NOTIFICATION_TYPE { BREWSTATUS, MAINTENANCE, RECOMMENDATION}
 
     // Update all preferences
     public static void updateSharedPreferences( Context context ) {
@@ -88,7 +102,25 @@ public class DataHandler {
     }
 
     // Sends notification to user
-    public static void sendNotification( Activity activity, String textTitle, String textContent, int notificationId ) {
+    public static void sendNotification( Activity activity, String textTitle, String textContent, int notificationId, NOTIFICATION_TYPE type ) {
+        if ( type == NOTIFICATION_TYPE.BREWSTATUS ) {
+            if (!PreferenceManager
+                    .getDefaultSharedPreferences( activity.getApplicationContext() )
+                    .getBoolean("notifications_brewing_status", true)
+            ) {
+                return;
+            }
+        }
+
+        if ( type == NOTIFICATION_TYPE.MAINTENANCE ) {
+            if (!PreferenceManager
+                    .getDefaultSharedPreferences( activity.getApplicationContext() )
+                    .getBoolean("notifications_maintenance_reminders", true)
+            ) {
+                return;
+            }
+        }
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(activity, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_lock)
                 .setContentTitle(textTitle)
@@ -99,6 +131,47 @@ public class DataHandler {
         notificationManager.notify(notificationId, builder.build());
 
         Log.d(TAG, "Sent Notification with id " + notificationId + " on channel " + CHANNEL_ID);
+    }
+
+    // Sends large notification to user
+    public static void sendLargeNotification( Activity activity, String textTitle, String textContent, int notificationId, NOTIFICATION_TYPE type ) {
+        if ( type == NOTIFICATION_TYPE.BREWSTATUS ) {
+            if (!PreferenceManager
+                    .getDefaultSharedPreferences( activity.getApplicationContext() )
+                    .getBoolean("notifications_brewing_status", true)
+            ) {
+                return;
+            }
+        }
+
+        if ( type == NOTIFICATION_TYPE.MAINTENANCE ) {
+            if (!PreferenceManager
+                    .getDefaultSharedPreferences( activity.getApplicationContext() )
+                    .getBoolean("notifications_maintenance_reminders", true)
+            ) {
+                return;
+            }
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(activity, CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_lock)
+                .setContentTitle(textTitle)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(textContent))
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+        NotificationManager notificationManager = activity.getSystemService(NotificationManager.class);
+        notificationManager.notify(notificationId, builder.build());
+
+        Log.d(TAG, "Sent Notification with id " + notificationId + " on channel " + CHANNEL_ID);
+    }
+
+    // Updates the isBrewing variable in the shared preferences
+    public static void updateIsBrewing( Context context, boolean isBrewing ) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isBrewing", isBrewing);
+        editor.apply();
+        IS_BREWING = isBrewing;
     }
 
 }

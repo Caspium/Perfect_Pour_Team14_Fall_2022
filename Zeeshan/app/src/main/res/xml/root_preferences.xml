@@ -21,8 +21,7 @@
             android:title="Your Name"
             app:iconSpaceReserved="false" />
         <!--        Change Email-->
-        <EditTextPreference
-            android:dialogTitle="Enter new email"
+        <Preference
             android:key="account_email"
             android:title="Change Email"
             app:iconSpaceReserved="false"/>
@@ -69,14 +68,14 @@
             app:iconSpaceReserved="false"/>
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="Help and Support" app:iconSpaceReserved="false">
+<!--    <PreferenceCategory android:title="Help and Support" app:iconSpaceReserved="false">-->
 
-        <Preference
-            android:title="Visit our website"
-            android:key="visitwebsite"
-            android:summary="See Frequently Asked Questions and Customer Support"
-            app:iconSpaceReserved="false"/>
+<!--        <Preference-->
+<!--            android:title="Visit our website"-->
+<!--            android:key="visitwebsite"-->
+<!--            android:summary="See Frequently Asked Questions and Customer Support"-->
+<!--            app:iconSpaceReserved="false"/>-->
 
-    </PreferenceCategory>
+<!--    </PreferenceCategory>-->
 
 </PreferenceScreen>

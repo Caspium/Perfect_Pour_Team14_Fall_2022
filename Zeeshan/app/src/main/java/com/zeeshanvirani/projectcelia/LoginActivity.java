@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -14,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private final String TAG = "LoginActivity";
 
     private TextInputEditText email_textbox;
     private TextInputEditText password_textbox;
@@ -69,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity( new Intent(getApplicationContext(), MainActivity.class) );
                         finishAffinity();
                     } else { // Sign in failed
+                        Log.d(TAG, task.getException().toString());
                         Toast.makeText(getApplicationContext(), "Invalid email or password. Please try again.",
                                 Toast.LENGTH_LONG).show();
                     }

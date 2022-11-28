@@ -2,6 +2,7 @@ package com.zeeshanvirani.projectcelia;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.preference.PreferenceManager;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -24,6 +25,16 @@ public class LaunchActivity extends AppCompatActivity {
 
         // Create notification channel
         DataHandler.createNotificationChannel( this );
+
+        DataHandler.IS_BREWING = PreferenceManager
+                .getDefaultSharedPreferences(getApplicationContext())
+                .getBoolean("isBrewing", false);
+        if (DataHandler.IS_BREWING) {
+            Intent i = new Intent(this, BrewingProcess.class);
+            i.putExtra(BrewingProcess.TAG_TEMPERATURE, -1);
+            i.putExtra(BrewingProcess.TAG_TARGET_SATURATION, -1);
+            startActivity(i);
+        }
 
         Button createaccount_btn = findViewById(R.id.button_createaccount);
         createaccount_btn.setOnClickListener(view -> {
@@ -53,18 +64,14 @@ public class LaunchActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             createaccount_btn.setEnabled( false );
             login_btn.setEnabled( false );
-        } else {
-            createaccount_btn.setEnabled( true );
-            login_btn.setEnabled( true );
         }
-
-        // Check if bluetooth is available
-        if ( BluetoothAdapter.getDefaultAdapter() == null ) {
+        else if ( BluetoothAdapter.getDefaultAdapter() == null ) {
             Toast.makeText(getApplicationContext(), "Bluetooth is not available on this device. Application cannot function without bluetooth capabilities.",
                     Toast.LENGTH_SHORT).show();
-            createaccount_btn.setEnabled( false );
-            login_btn.setEnabled( false );
-        } else {
+            createaccount_btn.setEnabled(false);
+            login_btn.setEnabled(false);
+        }
+        else {
             createaccount_btn.setEnabled( true );
             login_btn.setEnabled( true );
         }

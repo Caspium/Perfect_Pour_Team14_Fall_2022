@@ -61,6 +61,12 @@ public class CreateAccountActivity extends AppCompatActivity {
             return;
         }
 
+        if ( name_textbox.getText().length() >= 20 ) {
+            Toast.makeText(getApplicationContext(), "Name cannot be more than 20 characters.",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
         if ( !isValidEmail( email_textbox.getText().toString() ) ) { // Invalid email format
             Toast.makeText(getApplicationContext(), "Please enter a valid email address.",
                     Toast.LENGTH_LONG).show();
@@ -76,7 +82,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         // Check is password contains at least one number and one letter
         if ( !isValidPassword(password_textbox.getText().toString()) ) {
-            Toast.makeText(getApplicationContext(), "Password does not meet minimum requirements.",
+            Toast.makeText(getApplicationContext(), "Password does not meet minimum requirements. Password must be at least 6 characters.",
                     Toast.LENGTH_LONG).show();
             return;
         }
@@ -90,6 +96,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             Log.d(TAG, "Gathered " + task.getResult().getSignInMethods().size() + " existing logins for " + email_textbox.getText().toString() );
 
             if ( task.getResult().getSignInMethods().size() == 0 ) {
+                // User does not already exist. Create new account with provided information
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email_textbox.getText().toString(), password_textbox.getText().toString())
                         .addOnCompleteListener(this, task2 -> {
                             if (task2.isSuccessful()) { // Account creation success
