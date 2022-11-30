@@ -1,17 +1,25 @@
 package com.zeeshanvirani.projectcelia;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
@@ -101,22 +109,47 @@ public class CreateAccountActivity extends AppCompatActivity {
                         .addOnCompleteListener(this, task2 -> {
                             if (task2.isSuccessful()) { // Account creation success
 
-                                // Data to store in database
-                                Map<String, Object> data = new HashMap<>();
-                                data.put("name", name_textbox.getText().toString());
-                                data.put("notifyBrewingStatus", true );
-                                data.put("notifyMaintenanceReminders", true );
-                                data.put("next_target_temperature", "200");
-                                data.put("next_target_saturation", "50");
+                                // Gather all brews with ratings higher than 5
+                                // Average target temperature used for those brews
+                                // Use that value as the starting brew temp for new user
+                                FirebaseFirestore.getInstance().collection("brews").get()
+                                        .addOnCompleteListener(task1 -> {
+                                            float averageTemp = 0;
+                                            int averageTempCount = 0;
+                                            if (task1.isSuccessful()) {
+                                                for (QueryDocumentSnapshot document : task1.getResult()) {
+                                                    if (document.get(DataHandler.DB_RATING) == null) continue;
+                                                    if (document.get(DataHandler.DB_RATING).equals("null")) continue;
+                                                    if ((Long) document.get(DataHandler.DB_RATING) > 5) {
+                                                        averageTempCount++;
+                                                        averageTemp += Float.parseFloat((String) document.get(DataHandler.DB_TEMPERATURE));
+                                                    }
+                                                }
+                                                averageTemp = averageTemp / averageTempCount;
+                                                Log.d(TAG, String.valueOf(averageTemp));
+                                                // Data to store in database
+                                                Map<String, Object> data = new HashMap<>();
+                                                data.put("name", name_textbox.getText().toString());
+                                                data.put("notifyBrewingStatus", true );
+                                                data.put("notifyMaintenanceReminders", true );
+                                                data.put("next_target_temperature", String.valueOf(averageTemp));
+                                                data.put("next_target_saturation", "50");
 
-                                FirebaseFirestore.getInstance().collection("users")
-                                        .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .set(data, SetOptions.merge());
+                                                FirebaseFirestore.getInstance().collection("users")
+                                                        .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                        .set(data);
 
-                                DataHandler.updateSharedPreferences( getApplicationContext() );
+                                                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                                sharedPreferences.edit()
+                                                    .putString("account_name", name_textbox.getText().toString())
+                                                    .apply();
 
-                                startActivity( new Intent(getApplicationContext(), MainActivity.class) );
-                                finishAffinity();
+                                                DataHandler.updateSharedPreferences( getApplicationContext() );
+
+                                                startActivity( new Intent(getApplicationContext(), MainActivity.class) );
+                                                finishAffinity();
+                                            }
+                                        });
                             } else { // Account creation failed
                                 Toast.makeText(getApplicationContext(), "Account creation failed. Try again later.",
                                         Toast.LENGTH_SHORT).show();
