@@ -126,7 +126,7 @@ public class BrewFragment extends Fragment {
             // Check if there is an internet connection
             ConnectivityManager connectivityManager = (ConnectivityManager)requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-            if ( networkInfo == null || !networkInfo.isConnectedOrConnecting() ) {
+            if ( networkInfo == null || !networkInfo.isConnected() ) {
                 Toast.makeText(requireActivity(), "No Internet Connection available.",
                         Toast.LENGTH_SHORT).show();
                 return;
