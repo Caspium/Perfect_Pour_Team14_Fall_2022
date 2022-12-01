@@ -23,6 +23,9 @@ def main(p1, p2):
     data = pd.DataFrame()  # this creates the pandas dataframe containing all of the user feedback from the database
     for doc in docs:  # iterates through the document stream
         data = data.append(doc.to_dict(), ignore_index=True)  # appends it to my pandas dataframe
+    docs_brews = db.collection('brews').stream()  # reads from all documents in a collection of the database
+    for doc in docs_brews:  # iterates through the document stream
+        data = data.append(doc.to_dict(), ignore_index=True)  # appends it to my pandas dataframe
     # this replaces all of the string values of coffee bean type and converting it to float values
     data['bean_type'].loc[data['bean_type'] == 'robusta'] = 1.0  # converting robusta to 1
     data['bean_type'].loc[data['bean_type'] == 'arabica'] = 2.0  # converting arabica to 2
