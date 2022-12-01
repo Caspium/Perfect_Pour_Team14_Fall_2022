@@ -31,7 +31,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-
 public class BrewFragment extends Fragment {
 
     private static final String TAG = "ProjectCelia:BrewFragment";
@@ -67,26 +66,30 @@ public class BrewFragment extends Fragment {
         else
             heading.setText(R.string.brew_goodevening);
 
+        // Roast Buttons
         Button roast_light_btn = view.findViewById(R.id.button_roast_light);
         Button roast_medium_btn = view.findViewById(R.id.button_roast_medium);
         Button roast_mediumdark_btn = view.findViewById(R.id.button_roast_mediumdark);
         Button roast_dark_btn = view.findViewById(R.id.button_roast_dark);
+        roastTypeButtons = new Button[]{roast_light_btn, roast_medium_btn, roast_mediumdark_btn, roast_dark_btn};
 
+        // Cup Size Buttons
         Button cupsize_small_btn = view.findViewById(R.id.button_cupsize_8oz);
         Button cupsize_med_btn = view.findViewById(R.id.button_cupsize_16oz);
         Button cupsize_large_btn = view.findViewById(R.id.button_cupsize_20oz);
+        cupSizeButtons = new Button[]{cupsize_small_btn, cupsize_med_btn, cupsize_large_btn};
 
+        // Bean Type Buttons
         Button beantype_arabica = view.findViewById(R.id.button_beantype_arabica);
         Button beantype_robusta = view.findViewById(R.id.button_beantype_robusta);
         Button beantype_liberica = view.findViewById(R.id.button_beantype_liberica);
         Button beantype_excelsa = view.findViewById(R.id.button_beantype_excelsa);
-
-        roastTypeButtons = new Button[]{roast_light_btn, roast_medium_btn, roast_mediumdark_btn, roast_dark_btn};
-        cupSizeButtons = new Button[]{cupsize_small_btn, cupsize_med_btn, cupsize_large_btn};
         beanTypeButtons = new Button[]{beantype_arabica, beantype_robusta, beantype_liberica, beantype_excelsa};
 
+        // Start Brew Button
         Button start_brew_btn = view.findViewById(R.id.button_startbrew);
 
+        // User's Name Text Label
         TextView heading_name = view.findViewById(R.id.firstname);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireActivity().getApplicationContext());
         String fullName = sharedPreferences.getString("account_name", "");
@@ -110,7 +113,6 @@ public class BrewFragment extends Fragment {
         beantype_excelsa.setOnClickListener(view1 -> adjustBeanTypeButtons(3));
 
         start_brew_btn.setOnClickListener(view1 -> {
-
             // Check if all brewing options are selected
             if (getSelectedRoast().equals("") || getSelectedSize().equals("") || getSelectedBeanType().equals("")) {
                 Log.d(TAG, "Roast, Bean Type, or Size not selected.");
@@ -174,7 +176,6 @@ public class BrewFragment extends Fragment {
                 });
             }
         });
-
         return view;
     }
 

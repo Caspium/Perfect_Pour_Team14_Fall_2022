@@ -157,6 +157,7 @@ public class BrewingProcess extends AppCompatActivity {
                 startActivity(turnOn);
             }
 
+            // Check the build number. Ask for permission for Bluetooth explicitly.
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), isGranted -> {
                     if (!isGranted.containsValue(false)) {

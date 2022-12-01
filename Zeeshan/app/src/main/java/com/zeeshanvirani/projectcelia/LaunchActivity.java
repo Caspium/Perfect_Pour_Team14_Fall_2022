@@ -65,6 +65,7 @@ public class LaunchActivity extends AppCompatActivity {
             createaccount_btn.setEnabled( false );
             login_btn.setEnabled( false );
         }
+        // Check if phone has bluetooth capabilities
         else if ( BluetoothAdapter.getDefaultAdapter() == null ) {
             Toast.makeText(getApplicationContext(), "Bluetooth is not available on this device. Application cannot function without bluetooth capabilities.",
                     Toast.LENGTH_SHORT).show();

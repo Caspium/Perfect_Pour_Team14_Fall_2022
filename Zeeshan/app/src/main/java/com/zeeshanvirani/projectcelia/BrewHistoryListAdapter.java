@@ -103,7 +103,7 @@ public class BrewHistoryListAdapter extends RecyclerView.Adapter<BrewHistoryList
                 }
             });
 
-            // Waits for grind size to be updated by ML and then reports to user
+            // Waits for grind size to be updated by ML and then reports feedback to user
             docRef.addSnapshotListener((snapshot, e) -> {
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e);

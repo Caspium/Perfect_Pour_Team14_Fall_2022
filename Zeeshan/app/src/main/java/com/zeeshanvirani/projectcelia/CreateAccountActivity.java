@@ -120,7 +120,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                                 for (QueryDocumentSnapshot document : task1.getResult()) {
                                                     if (document.get(DataHandler.DB_RATING) == null) continue;
                                                     if (document.get(DataHandler.DB_RATING).equals("null")) continue;
-                                                    if ((Long) document.get(DataHandler.DB_RATING) > 5) {
+                                                    if (Long.parseLong(String.valueOf(document.get(DataHandler.DB_RATING))) > 5) {
                                                         averageTempCount++;
                                                         averageTemp += Float.parseFloat((String) document.get(DataHandler.DB_TEMPERATURE));
                                                     }
