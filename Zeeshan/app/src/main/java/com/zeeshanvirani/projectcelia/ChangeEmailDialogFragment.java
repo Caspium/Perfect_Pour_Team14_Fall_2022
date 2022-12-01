@@ -77,6 +77,7 @@ public class ChangeEmailDialogFragment extends DialogFragment {
                             .getString("account_email", ""),
                             password.getText().toString()
                     );
+
                     // Use provided password to allow for an email change on the account
                     FirebaseAuth.getInstance().getCurrentUser().reauthenticate(credential).addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {

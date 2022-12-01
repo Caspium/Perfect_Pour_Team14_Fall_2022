@@ -163,9 +163,6 @@ public class PreferenceFragment extends PreferenceFragmentCompat implements Shar
                         .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .set(data, SetOptions.merge());
                 break;
-
-
         }
     }
-
 }

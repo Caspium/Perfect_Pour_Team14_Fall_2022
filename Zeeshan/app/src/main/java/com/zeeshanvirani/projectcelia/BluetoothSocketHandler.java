@@ -41,6 +41,7 @@ public class BluetoothSocketHandler {
 
             // Was app already brewing?
             if ( !DataHandler.IS_BREWING )
+                // App was not already brewing. Send start message.
                 sendMessage("START_BREW:" + target_temp + ":" + target_saturation + ":" + cupsize);
             else
                 Log.d(TAG, "There is already a brew in progress. Resuming...");
@@ -60,7 +61,6 @@ public class BluetoothSocketHandler {
         try {
             Thread.sleep(1000);
             Log.d(TAG, "Closing Bluetooth Socket");
-            //sendMessage("endConnection");
             inputStream.close();
             outputStream.close();
             inputStream = null;
@@ -86,7 +86,7 @@ public class BluetoothSocketHandler {
     public class InputStreamThread extends Thread {
         public void run() {
             byte[] inBuffer = new byte[1024];
-            int numBytes; // bytes returned from read()
+            int numBytes;
 
             // Keep listening to the InputStream until an exception occurs.
             while (true) {
@@ -104,5 +104,4 @@ public class BluetoothSocketHandler {
             }
         }
     }
-
 }
