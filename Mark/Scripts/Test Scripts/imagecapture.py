@@ -39,15 +39,18 @@ DRIVER3 = 0x42
 DRIVER4 = 0x43
 ALLCALL = 0x48
 
+# Set of dictionaries to extract certain variables based on wavelength
 colorname = dict([(525,"525"), (590,"590"), (625,"625"), (680,"680"), (780,"780"), (810,"810"), (870,"870"), (930,"930")])
 colorreg = dict([ (525,LEDOUT0), (590,LEDOUT0), (625,LEDOUT0), (680,LEDOUT0), (780,LEDOUT1), (810,LEDOUT1), (870,LEDOUT1), (930,LEDOUT1)])
 colorregval = dict([(525,0x80), (590,0x20), (625,0x08), (680,0x02), (780,0x80), (810,0x20), (870,0x08), (930,0x02)])
 pwmreg = dict([(525,PWM3), (590,PWM2), (625,PWM1), (680,PWM0), (780,PWM7), (810,PWM6), (870,PWM5), (930,PWM4)])
-# initialize/reset the device
+# initialize/reset the device by starting oscillator
 def initialize():
     i2cbus.write_byte_data(ALLCALL, MODE1, 0x01)
 
 
+# calling each function will toggle and set brightness of leds, of the wavelength
+# numbers to the side coincide with what that register was for in the original ring light
 def color525(brightness):
     i2cbus.write_byte_data(ALLCALL,PWM0, brightness) #680
     i2cbus.write_byte_data(ALLCALL,PWM7, brightness) #780
@@ -85,20 +88,20 @@ picam2 = Picamera2()
 #pprint(picam2.sensor_modes)
 
 ### IMAGE RESOLUTION & CONFIG ###
-picam2.still_configuration.main.size = (640, 480)
+picam2.still_configuration.main.size = (640, 480) # resolution
 picam2.still_configuration.align()
-picam2.configure("still")
-picam2.set_controls({"ExposureTime": 40000, "AnalogueGain": 1.0, "AwbEnable": 0, "AeEnable": 0})
+picam2.configure("still") # type of capture to perform: still image
+# set gains to static numbers so that images are not processed to be uniform
+picam2.set_controls({"ExposureTime": 40000, "AnalogueGain": 1.0, "AwbEnable": 0, "AeEnable": 0}) 
 picam2.start()
 time.sleep(1)
 
 
-## CAL
-
-framedelay = 0.03
+framedelay = 0.03 # gives the leds a chance to update
 print("Frame delay:", framedelay)
 testname = input("INPUT TEST NAME: ")
 input("START TEST <enter>")
+# leds are toggled, images are captured to arrays, and saved as pngs 
 # 525
 color525(brightness525)
 time.sleep(framedelay)
@@ -124,7 +127,6 @@ array = picam2.capture_array("main")
 array = Image.fromarray(array)
 array.save(testname + '_930' + ".png")
 
-
-
+# turn off leds
 i2cbus.write_byte_data(ALLCALL, LEDOUT0, 0x00)
 i2cbus.write_byte_data(ALLCALL, LEDOUT1, 0x00)
