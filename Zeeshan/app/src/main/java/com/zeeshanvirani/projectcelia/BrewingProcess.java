@@ -1,9 +1,13 @@
 package com.zeeshanvirani.projectcelia;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -32,6 +36,8 @@ public class BrewingProcess extends AppCompatActivity {
     public static final String TAG_TEMPERATURE = "temperature";
     public static final String TAG_TARGET_SATURATION = "saturation";
     public static final String TAG_CUP_SIZE = "cupsize";
+
+    private static final int MY_BLUETOOTH_ENABLE_REQUEST_ID = 6;
 
     private BluetoothAdapter btAdapter;
     private BluetoothSocket btSocket;
@@ -73,7 +79,7 @@ public class BrewingProcess extends AppCompatActivity {
             filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
             filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
             this.registerReceiver(myBroadcastReceiver, filter);
-            startPairing();
+            enableBluetooth();
         } else
             Log.d(TAG, "Device is already connected. Receiver NOT registered.");
 
@@ -141,8 +147,7 @@ public class BrewingProcess extends AppCompatActivity {
         }
     }
 
-    // Start bluetooth pairing process
-    private void startPairing() {
+    private void enableBluetooth() {
         btAdapter = BluetoothAdapter.getDefaultAdapter();
 
         // If device does not have a bluetooth adapter, quit.
@@ -152,11 +157,33 @@ public class BrewingProcess extends AppCompatActivity {
             // Check if bluetooth is on
             if (!btAdapter.isEnabled()) {
                 // Bluetooth is off, ask user to enable
-                Log.d(TAG, "Enabled Bluetooth Adapter");
                 Intent turnOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivity(turnOn);
+                registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                    result -> {
+                        if (result.getResultCode() == RESULT_OK) {
+                            startPairing();
+                        }
+                        if (result.getResultCode() == RESULT_CANCELED) {
+                            statusUpdate("UNABLE_TO_CONNECT");
+                        }
+                    }
+                ).launch(turnOn);
             }
+            startPairing();
 
+        } catch (SecurityException e ) {
+            e.printStackTrace();
+        }
+    }
+
+    // Start bluetooth pairing process
+    private void startPairing() {
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        // If device does not have a bluetooth adapter, quit.
+        if (btAdapter == null) return;
+
+        try {
             // Check the build number. Ask for permission for Bluetooth explicitly.
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), isGranted -> {
@@ -173,8 +200,7 @@ public class BrewingProcess extends AppCompatActivity {
                 if (btAdapter.isDiscovering()) btAdapter.cancelDiscovery();
                 Log.d(TAG, String.valueOf(btAdapter.startDiscovery()));
             }
-
-        } catch (SecurityException e ) {
+        } catch (SecurityException e) {
             e.printStackTrace();
         }
     }

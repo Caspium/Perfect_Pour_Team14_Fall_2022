@@ -28,7 +28,7 @@ public class DataHandler {
     public static boolean IS_BREWING = false;
     public static boolean DEVICE_CONNECTED = false;
     public static BluetoothSocketHandler btSocketHandler = null;
-    public static String DEVICE_MACADDR = "5C:F3:70:70:14:FD";
+    public static String DEVICE_MACADDR = "DC:A6:32:E5:6B:9D";
     public static UUID MY_UUID = UUID.fromString("b3f75a8f-fa4b-4dbc-8e79-51a486a30fa9");
 
     // Database Variables
