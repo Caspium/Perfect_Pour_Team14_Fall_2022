@@ -1,0 +1,10 @@
+PSU should take in 120VAC to supply heating coil and convert to stable 5V for microelectronics
+
+Mass should not exceed 15lbs and 2x2x2ft in volume
+
+Carafe should be detected within 5mm of the sensor
+
+Camera should be able to capture images during brew and deliver them to the ML algorithm locally
+
+Communicates status with app via Bluetooth
+
