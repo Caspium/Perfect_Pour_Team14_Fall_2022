@@ -12,7 +12,7 @@ import os.path
 from PIL import Image
 
 
-pimodel = load_model("model.h5")
+pimodel = load_model("model_final.h5")
 #opens my csv of labels and reads it into a list of labels
 with open("singlelabel.csv", newline='') as csvfile:
     labels = list(csv.reader(csvfile))
