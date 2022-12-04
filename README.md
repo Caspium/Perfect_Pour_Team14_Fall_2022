@@ -7,3 +7,6 @@ To run the water saturation algorithm, refer to the testML.py script and the mod
 
 To run the user feedback script, create a firebase database account and set up a dedicated cloud. Remember to upgrade your account to include cloud functions capabilities. Refer to Cindy\UserFeedbackScript to for the main.py script and upload that script to the firebase database cloud and set the trigger to only occur when a change happens in the database collections also known as the brews folder to update. The script already includes lines that have the password to the database and enable you to access the database from the script.
 
+Android Application Setup
+
+The source code for the application can be found within the "Zeeshan" folder. Open up the source code and edit the DataHandler.java file. Line 31 "DEVICE_MACADDR" needs to equal the mac address to the bluetooth device the application should search and connect to. Afterwards the app can be built and compiled into an apk and installed on an android device. 
